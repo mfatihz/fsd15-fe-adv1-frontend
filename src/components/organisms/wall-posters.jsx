@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import Poster from "./poster";
-import clsx from 'clsx'
 import NoContent from '../atoms/no-content';
+import clsx from 'clsx'
 
 const WallPosters = ({
-  movies, galleryType, isWrapped, xBoundary,
+  movies, galleryType, xBoundary,
   scrollContainerRef, itemRef,
   idToggleHandler, isInMyListHandler,
+  isWrapped=false,
   alt="Isi galeri belum tersedia"
 }) => {
   

@@ -3,15 +3,22 @@ import ScrollRightButton from "../atoms/scroll-right-button";
 import ScrollLeftButton from "../atoms/scroll-left-button";
 import { getDeviceType } from '../../utils/get-device-type';
 import WallPosters from './wall-posters';
+import clsx from 'clsx'
 
-const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, isWrapped=false, alt }) => {
+const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, isWrapped, alt }) => {
   const scrollContainerRef = useRef(null);
   const itemRef = useRef(null);
+  const animationFrameRef = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
-  const animationFrameRef = useRef(null);
   const [isDesktopTypeDevice, setIsDesktopTypeDevice] = useState(true);
+
+  const scrollButtonBaseStyle = `
+    absolute z-20 bottom-1/2 translate-y-1/2
+    transition-opacity duration-300
+    hover:opacity-80
+  `;
 
   // Check for mobile and content overflow
   useEffect(() => {
@@ -36,7 +43,10 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         const gap = 16; // space-x-4 = 16px
         const totalContentWidth = movies?.length * (itemWidth + gap) - gap;
         
-        setShowScrollButtons(totalContentWidth > container.offsetWidth);
+        setShowScrollButtons(
+          !isWrapped && !isMobile &&
+          totalContentWidth > container.offsetWidth
+        );
       }
     };
 
@@ -139,33 +149,26 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         itemRef={itemRef}
         idToggleHandler={idToggleHandler}
         isInMyListHandler={isInMyListHandler}
-        //handleTouchStart={handleTouchStart}
-        //handleTouchMove={handleTouchMove}
-        //handleTouchEnd={handleTouchEnd}
       />
 
-      { !isWrapped && !isMobile && showScrollButtons && (
-        <>
-          <div className="absolute z-20 bottom-1/2 translate-y-1/2 left-0 -translate-x-1/2 transition-opacity duration-300">
-            <ScrollLeftButton 
-              onClick={(e) => {
-                e.stopPropagation();
-                handleScrollLeft();
-              }}
-              className="hover:opacity-80"
-            />
-          </div>
-          <div className="absolute z-20 bottom-1/2 translate-y-1/2 right-0 translate-x-1/2 transition-opacity duration-300">
-            <ScrollRightButton 
-              onClick={(e) => {
-                e.stopPropagation();
-                handleScrollRight();
-              }}
-              className="hover:opacity-80"
-            />
-          </div>
-        </>
-      )}
+      { showScrollButtons && 
+        <ScrollLeftButton
+          onClick={(e) => {
+            e.stopPropagation();
+            handleScrollLeft();
+          }}
+          className={ clsx(scrollButtonBaseStyle, "left-0 -translate-x-1/2") }
+        />
+      }
+      { showScrollButtons &&
+        <ScrollRightButton 
+          onClick={(e) => {
+            e.stopPropagation();
+            handleScrollRight();
+          }}
+          className={ clsx(scrollButtonBaseStyle, "right-0 translate-x-1/2") }
+        />
+      }
     </div>
   );
 };
