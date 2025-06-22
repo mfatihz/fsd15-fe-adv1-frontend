@@ -6,9 +6,11 @@ import WallPosters from './wall-posters';
 import clsx from 'clsx'
 
 const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, isWrapped, alt }) => {
+  const posterContainer = useRef(null)
   const scrollContainerRef = useRef(null);
   const itemRef = useRef(null);
   const animationFrameRef = useRef(null);
+  
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
@@ -115,8 +117,6 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
     const scrollAmount = (itemWidth + gap) * 2;
     smoothScroll(scrollAmount);
   };
-
-  const posterContainer = useRef(null)
   
   const [xBoundary, setXBoundary] = useState({left:0, right:0});
 
