@@ -1,22 +1,16 @@
 import { useRef, useState, useEffect } from 'react';
 import ScrollRightButton from "../atoms/scroll-right-button";
 import ScrollLeftButton from "../atoms/scroll-left-button";
-import Poster from "./poster";
-import clsx from 'clsx'
-import NoContent from '../atoms/no-content';
 import { getDeviceType } from '../../utils/get-device-type';
+import WallPosters from './wall-posters';
 
-const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, alt="Isi galeri belum tersedia", isWrapped=false}) => {
+const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, isWrapped=false, alt }) => {
   const scrollContainerRef = useRef(null);
   const itemRef = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
   const animationFrameRef = useRef(null);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  //pemeriksaan device type
   const [isDesktopTypeDevice, setIsDesktopTypeDevice] = useState(true);
 
   // Check for mobile and content overflow
@@ -69,26 +63,6 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
       }
     };
   }, [movies?.length, isDesktopTypeDevice]);
-
-  const handleTouchStart = (e) => {
-    const touch = e.touches[0];
-    setStartX(touch.pageX);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
-    setIsDragging(true);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    const touch = e.touches[0];
-    const x = touch.pageX;
-    const walk = (x - startX) * 2;
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-    e.preventDefault();
-  };
-
-  const handleTouchEnd = () => {
-    setIsDragging(false);
-  };
 
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
@@ -151,47 +125,24 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
     return () => window.removeEventListener('resize', updatePosition);
   }, []);
 
-  const posters = movies?.map((movie, index) => (
-    <li
-      key={movie.id}
-      className="inline-block flex-shrink-0"
-      ref={index === 0 ? itemRef : null}
-    >
-      <Poster
-        movie={movie} galleryType={galleryType}
-        //isMobile={isMobile}
-        xBoundary={xBoundary}
-        onClick={idToggleHandler} isInMyListHandler={isInMyListHandler}
-      />
-    </li>
-  ));
-
-  const baseStyle = "flex list-none p-0 whitespace-nowrap";
-  const galleryClass = galleryType == 'continue' ? '' : 'gap-4'
-  const wrapCLass = isWrapped ? 'flex-wrap' : ''
-
   return (
     <div
       className="relative overflow-visible"
       ref={posterContainer}
     >
-      <div 
-        ref={scrollContainerRef}
-        className = "w-full py-12 touch-pan-x overflow-x-scroll scrollbar-hide"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        style={{ touchAction: 'pan-y' }}
-      >
-        { movies?.length > 0 ?
-          <ul
-            className={clsx(baseStyle, galleryClass, wrapCLass)}
-          >
-            { posters }
-          </ul> :
-          <NoContent>{ alt }</NoContent>
-        }
-      </div>
+      <WallPosters
+        movies={movies}
+        galleryType={galleryType}
+        isWrapped={isWrapped}
+        xBoundary={xBoundary}
+        scrollContainerRef={scrollContainerRef}
+        itemRef={itemRef}
+        idToggleHandler={idToggleHandler}
+        isInMyListHandler={isInMyListHandler}
+        //handleTouchStart={handleTouchStart}
+        //handleTouchMove={handleTouchMove}
+        //handleTouchEnd={handleTouchEnd}
+      />
 
       { !isWrapped && !isMobile && showScrollButtons && (
         <>
