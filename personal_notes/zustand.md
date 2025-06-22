@@ -22,12 +22,13 @@ const useStore = create(
 2. bind your components
 ```
 function BearCounter() {
-  const bears = useStore((state) => state.bears)
+
   return <h1>{bears} bears around here...</h1>
 }
 
 function Controls() {
-  const increasePopulation = useStore((state) => state.increasePopulation)
+  const increasePopulation = useStore((state) => state.increase
+  Population)
   return <button onClick={increasePopulation}>one up</button>
 }
 
