@@ -4,7 +4,9 @@ import CheckButton from '../atoms/check-button'
 import ChevronDownButton from '../atoms/chevron-down-button'
 import PosterContentRating from '../atoms/poster-content-rating'
 import PosterLabel from '../atoms/poster-label'
+// import { usePopupDetail } from '../../stores/use-popup-detail'
 
+// const setId = (id)=>(usePopupDetail((state=>state.id)))
 function PosterHover({ movie, onClick, isInMyListHandler }) {
   return (
     <div className='  
@@ -24,7 +26,10 @@ function PosterHover({ movie, onClick, isInMyListHandler }) {
             onClick={onClick}
             movieId={movie.id}
           />
-          <ChevronDownButton className="ml-auto"/>
+          <ChevronDownButton
+            className="ml-auto"
+            movieData={movie}
+          />
         </div>
         <div className='flex gap-3 sm:gap-4 text-xs sm:text-sm content-center items-center'>
           <PosterContentRating>{ movie.contentRating }</PosterContentRating>

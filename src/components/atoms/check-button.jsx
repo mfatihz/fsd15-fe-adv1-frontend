@@ -7,10 +7,13 @@ function CheckButton({ isChecked=false, onClick, movieId }) {
     px-1 sm:px-2
     rounded-full cursor-pointer
     border box-border
-    transition-all duration-200
     hover:scale-105 hover:shadow-md
+    hover:border hover:border-yellow-500
+    transition-all duration-200
   `
-  const checkedClass = isChecked ? 'bg-yellow-500 border-black' : 'border-white/60'
+  
+  const checkedClass = isChecked ? 'bg-yellow-500 border-yellow-500' : 'border-white/60'
+
   return (
     <button
       className={ clsx(baseStyle, checkedClass) }

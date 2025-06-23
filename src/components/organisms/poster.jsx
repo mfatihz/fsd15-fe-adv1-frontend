@@ -20,7 +20,7 @@ function Poster({
     const rect = posterRef.current.getBoundingClientRect()
     // const viewportWidth = window.innerWidth
     const rectWidth = rect.width
-    const hoverWidth = 408 //TODO: sementara pakai maks v
+    const hoverWidth = 408 //TODO: sementara pakai maks w
     const difWidth = (hoverWidth - rectWidth) / 2
     
     // Pemeriksaan sisi kiri

@@ -7,14 +7,12 @@ store is a hook! You can put anything in it: primitives, objects, functions. The
 import { create } from 'zustand'
 
 const useStore = create(
-  (set) => (
-    {
+  (set) => ({
       bears: 0,
       increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
       removeAllBears: () => set({ bears: 0 }),
       updateBears: (newBears) => set({ bears: newBears }),
-    }
-  )
+  })
 )
 ```
 

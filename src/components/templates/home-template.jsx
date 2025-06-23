@@ -3,6 +3,7 @@ import Hero from "../organisms/hero"
 import Footer from "../organisms/home-footer"
 import GalleriesTemplate from "./galleries-template"
 import { useRef } from 'react';
+import { usePopupDetail } from "../../stores/use-popup-detail";
 
 function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMyListHandler }) {
     const topRef = useRef(null);
@@ -10,6 +11,8 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
     const scrollToTop = () => {
         topRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
+
+    const { isOpen, close } = usePopupDetail();
 
     return (
         <div className="min-h-screen flex flex-col">
@@ -33,6 +36,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                         "
                     />
                 }
+            { isOpen && <h1 onClick={ close}>Open</h1>}
 
                 <GalleriesTemplate
                     galleries={galleries}

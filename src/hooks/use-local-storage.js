@@ -27,6 +27,7 @@ export default function useLocalStorage(key, initialValue = new Set()) {
   };
 
   // Check if id exists
+  // fungsional dibungkus di sini agar jika ada perubahan struktur data tidak akan berpengaruh ke implementasi
   const hasId = (id) => storedValue.has(id);
 
   return {
