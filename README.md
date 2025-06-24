@@ -7,8 +7,9 @@ Demo: [netlify](https://fsd15-fe-adv1.netlify.app/)
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
-- [x] customHook
-    - done: useLocalStorage
+- [x] customHook.\
+    done:
+    - useLocalStorage
 - [ ] Fetching (Axios) untuk consume API.
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.\
     done:
@@ -32,7 +33,7 @@ Instructions
 - [ ] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
-- [ ] Dapat menggimplementasikan interceptor
+- [ ] Dapat mengimplementasikan interceptor
 - [ ] Simpan basic url pada .env
 - [ ] Bisa menggunakan custom hooks untuk memisahkan API dari komponen React
 
