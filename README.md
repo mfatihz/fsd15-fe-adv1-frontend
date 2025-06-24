@@ -3,7 +3,7 @@
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
 Stack: Vite + React + React Router + tailwind\
-Demo: [netlify](https://fsd15-fe-int2.netlify.app/)
+Demo: [netlify](https://fsd15-fe-adv1.netlify.app/)
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
@@ -11,7 +11,8 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     - done: useLocalStorage
 - [ ] Fetching (Axios) untuk consume API.
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.\
-    done: Zustand
+    done: using zustand in usePopupDetail (in folder: src\stores\)\
+    implementasi:
     - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
     - pada Poster: untuk menampilkan PopupDetail component
 - [x] mengimplementasikan library pada React\
@@ -22,8 +23,8 @@ Instructions
 - [ ] Buat fake API menggunakan [Mock API](https://mockapi.io/) atau [Firebase](https://firebase.google.com/).
 - [ ] Buat fungsi GET, UPDATE, ADD, dan DELETE data.
 2. Implementasikan API Call
-- [ ] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
-- [ ] Buat folder "services/api".
+- [x] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
+- [x] Buat folder "services/api".
 - [ ] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
 - [ ] Gunakan url API: simpan url api dasar dalam file .env
 
