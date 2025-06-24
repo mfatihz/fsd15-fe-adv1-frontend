@@ -10,8 +10,11 @@ function Poster({
   onClick,
   isInMyListHandler,
 }) {
+  //const { isOpen } = usePopupDetail
   const [isHovered, setIsHovered] = useState(false)
   const posterRef = useRef(null)
+
+  const isContinueType = galleryType !== 'continue'
 
   // Fungsi untuk menentukan posisi hover
   const getHoverPosition = () => {
@@ -50,18 +53,18 @@ function Poster({
       <PosterDefault
         movie={ movie }
         galleryType={ galleryType }
-        className={ galleryType !== 'continue' ? 'cursor-pointer' : '' }
+        className={ isContinueType ? 'cursor-pointer' : '' }
       />
 
       { //(!isMobile && isHovered && galleryType !== 'continue') &&
-        (isHovered && galleryType !== 'continue') && 
-        <div 
+        (isHovered && isContinueType) &&
+        <div
           className="absolute z-30 top-1/2"
           style={getHoverPosition()}
         >
           <PosterHover movie={movie} onClick={onClick} isInMyListHandler={isInMyListHandler}/>
         </div>
-      }
+        }
     </div>
   )
 }

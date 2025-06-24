@@ -1,12 +1,12 @@
 import clsx from 'clsx'
 
-const CoverImage = ({src, className=""}) => { // className="w-full h-full"
+const CoverImage = ({src, className="", alt="Poster"}) => { // className="w-full h-full"
     const baseStyle = "object-cover"
 
     return (
         <img
             src={src}
-            alt="Poster"
+            alt={alt}
             className={clsx(baseStyle, className)}
         />
     );

@@ -3,10 +3,9 @@ import PlayButton from '../atoms/play-button'
 import CheckButton from '../atoms/check-button'
 import ChevronDownButton from '../atoms/chevron-down-button'
 import PosterContentRating from '../atoms/poster-content-rating'
-import PosterLabel from '../atoms/poster-label'
-// import { usePopupDetail } from '../../stores/use-popup-detail'
+import PosterChip from '../atoms/poster-chip'
+import PosterText from '../atoms/poster-text'
 
-// const setId = (id)=>(usePopupDetail((state=>state.id)))
 function PosterHover({ movie, onClick, isInMyListHandler }) {
   return (
     <div className='  
@@ -17,7 +16,7 @@ function PosterHover({ movie, onClick, isInMyListHandler }) {
       overflow-hidden
       shadow-xl
     '>
-      <CoverImage src={movie.images.landscape} className="w-full h-[254px] object-cover" />
+      <CoverImage src={movie?.images?.landscape} className="w-full h-[254px] object-cover" />
       <div className='p-4 sm:p-8 flex flex-col gap-3 sm:gap-5 text-white'>
         <div className='flex gap-3 sm:gap-4'>
           <PlayButton />
@@ -34,11 +33,11 @@ function PosterHover({ movie, onClick, isInMyListHandler }) {
         <div className='flex gap-3 sm:gap-4 text-xs sm:text-sm content-center items-center'>
           <PosterContentRating>{ movie.contentRating }</PosterContentRating>
           { movie.type == "series" ?
-            (movie.episodes && <PosterLabel>{ movie.episodes + " episode" }</PosterLabel>) :
-            (movie.duration && <PosterLabel>{ movie.duration + " jam" }</PosterLabel>)
+            (movie.episodes && <PosterChip content={movie.episodes} suffix='episode'/>) :
+            (movie.duration && <PosterChip content={movie.duration} suffix="duration" />)
           }
         </div>
-        {movie.genres && <PosterLabel className='text-xs sm:text-sm'>{ movie.genres.join(" · ") }</PosterLabel>}
+        <PosterText className='text-xs sm:text-sm'>{ movie.genres.join(" · ") }</PosterText>
       </div>
     </div>
   )
