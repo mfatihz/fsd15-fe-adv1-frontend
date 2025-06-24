@@ -10,10 +10,11 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
 - [x] customHook
 done: useLocalStorage
 - [ ] Fetching (Axios) untuk consume API.
-- [ ] State management dengan seperti Redux, UseContext, dan Zustand.
+- [ ] State management dengan seperti Redux, UseContext, dan Zustand.\
     done: Zustand\
     dipakai pada Home untuk mengatur scroll pada browser
-- [x] mengimplementsikan library pada React [React Router].
+- [x] mengimplementsikan library pada React
+    done: React Router
 
 Instructions
 1. Siapkan Fake API atau Mock Data .
