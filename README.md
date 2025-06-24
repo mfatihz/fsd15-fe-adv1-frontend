@@ -7,13 +7,13 @@ Demo: [netlify](https://fsd15-fe-int2.netlify.app/)
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
-- [x] customHook
-done: useLocalStorage
+- [x] customHook\
+    - done: useLocalStorage
 - [ ] Fetching (Axios) untuk consume API.
 - [ ] State management dengan seperti Redux, UseContext, dan Zustand.\
     done: Zustand\
-    dipakai pada Home untuk mengatur scroll pada browser
-- [x] mengimplementsikan library pada React
+    - dipakai pada Home untuk mengatur scroll pada browser
+- [x] mengimplementsikan library pada React\
     done: React Router
 
 Instructions
