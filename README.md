@@ -33,7 +33,7 @@ Instructions
 - [ ] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
-- [ ] Dapat menggimplementasikan interceptor
+- [ ] Dapat mengimplementasikan interceptor
 - [ ] Simpan basic url pada .env
 - [ ] Bisa menggunakan custom hooks untuk memisahkan API dari komponen React
 
