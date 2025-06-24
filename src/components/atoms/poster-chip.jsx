@@ -8,7 +8,6 @@ function PosterChip({ content, suffix, className }) {
   } else if (suffix === 'duration') {
     content = content.split(/[.,]/)
     content = `${content[0] && content[0]>0 ? content[0]+'j ' : ''}${content[1] && content[1]>0 ? content[1]+'m' :'' }`
-console.log(content)
   }
 
   return (

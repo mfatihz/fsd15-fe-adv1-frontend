@@ -11,12 +11,15 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     - done: useLocalStorage
 - [ ] Fetching (Axios) untuk consume API.
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.\
-    done: using zustand in usePopupDetail (in folder: src\stores\)\
-    implementasi:
-    - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
-    - pada Poster: untuk menampilkan PopupDetail component
+    done:
+    - Zustand: usePopupDetail (in folder: src\stores\\)\
+        implementasi:
+        - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
+        - pada Poster: untuk menampilkan PopupDetail component
 - [x] mengimplementasikan library pada React\
-    done: React Router
+    done:
+    - React Router: Link
+    - Sooner: Toaster, toast
 
 Instructions
 1. Siapkan Fake API atau Mock Data .

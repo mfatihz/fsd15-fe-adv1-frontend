@@ -5,6 +5,7 @@ import ChevronDownButton from '../atoms/chevron-down-button'
 import PosterContentRating from '../atoms/poster-content-rating'
 import PosterChip from '../atoms/poster-chip'
 import PosterText from '../atoms/poster-text'
+import { Toaster, toast } from 'sonner'
 
 function PosterHover({ movie, onClick, isInMyListHandler }) {
   return (
@@ -22,7 +23,11 @@ function PosterHover({ movie, onClick, isInMyListHandler }) {
           <PlayButton />
           <CheckButton
             isChecked={isInMyListHandler(movie.id)}
-            onClick={onClick}
+            onClick={() => {
+              onClick(movie.id);
+              // NOTE: isInMyListHandler(movie.id) di sini membaca state lama
+              toast(`${movie.title} ${isInMyListHandler(movie.id) ? 'dihapus dari' : 'ditambahkan ke'} Daftar Saya`);
+            }}
             movieId={movie.id}
           />
           <ChevronDownButton

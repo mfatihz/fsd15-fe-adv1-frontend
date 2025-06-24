@@ -5,6 +5,7 @@ import GalleriesTemplate from "./galleries-template"
 import { useEffect, useRef } from 'react';
 import { usePopupDetail } from "../../stores/use-popup-detail";
 import PopupDetail from "../organisms/popup-detail";
+import { Toaster } from "sonner";
 
 function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMyListHandler }) {
     const topRef = useRef(null);
@@ -34,6 +35,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
   
     return (
         <div className="min-h-screen flex flex-col">
+            <Toaster position='top-center'/>
             <Header
                 navData={header.navData}
                 menuData={header.menuData}
