@@ -17,9 +17,11 @@ const PopupDetail = () => {
         fixed inset-0 z-50
         flex justify-center
         bg-black/70 bg-opacity-90
+        overflow-y-auto
       ">
         <div className="relative">
-          <div className='relative w-[933px]
+          <div 
+          className='relative w-[933px]
             m-20
             rounded-lg sm:rounded-xl md:rounded-2xl
             flex flex-col bg-[#0f0f1a]
