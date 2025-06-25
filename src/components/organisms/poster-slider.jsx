@@ -74,7 +74,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [movies?.length, isDesktopTypeDevice]);
+  }, [movies?.length, isDesktopTypeDevice, isMobile, isWrapped]);
 
   const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
