@@ -1,6 +1,7 @@
-function PosterContentRating({children}) {
+function PosterContentRating({ children, type}) {
+  const style = type==='rect' ? 'bg-transparent border px-2 rounded-sm grow-0' : 'bg-gray-700 px-3 py-1 rounded-full grow-0'
   return (
-    <div className='bg-gray-700 px-3 py-1 rounded-full grow-0'>{ children }</div>
+    <div className={ style }>{ children }</div>
   )
 }
 
