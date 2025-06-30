@@ -14,8 +14,6 @@ function Poster({
   const [isHovered, setIsHovered] = useState(false)
   const posterRef = useRef(null)
 
-  const isContinueType = galleryType !== 'continue'
-
   // Fungsi untuk menentukan posisi hover
   const getHoverPosition = () => {
     if (!posterRef.current) return {}
@@ -53,11 +51,10 @@ function Poster({
       <PosterDefaultCard
         movie={ movie }
         galleryType={ galleryType }
-        className={ isContinueType ? 'cursor-pointer' : '' }
       />
 
       { //(!isMobile && isHovered && galleryType !== 'continue') &&
-        (isHovered && isContinueType) &&
+        (isHovered && galleryType !== 'continue') &&
         <div
           className="absolute z-30 top-1/2"
           style={getHoverPosition()}
