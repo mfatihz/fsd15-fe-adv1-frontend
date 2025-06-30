@@ -3,6 +3,7 @@ import icon from '../../assets/images/icons/add-icon.svg'
 function AddButton({ position = '', onClick = null }) {
   return (
     <button
+      type="button"
       onClick={onClick}
       aria-label="Mute"
       className={`

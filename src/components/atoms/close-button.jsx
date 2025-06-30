@@ -14,6 +14,7 @@ function CloseButton({ className = 'absolute top-4 right-4', onClick = null }) {
 
   return (
     <button
+      type="button"
       onClick={onClick}
       aria-label="Tutup"
       className={clsx(baseStyle, className)}

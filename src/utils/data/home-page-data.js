@@ -1,4 +1,4 @@
-import { heroData, continueData, topData, trendingData, newData } from "./db-functions"
+import { heroData, continueData, topData, trendingData, newData } from "./_queryFunctions"
 
 export const movieHero = heroData
 

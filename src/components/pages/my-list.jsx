@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { navData, menuData, genreData, helpData } from "../../utils/app/home-utils"
-import { myList } from "../../utils/data/list-page-data"
+import { myList } from "../../utils/data/my-list-page-data"
 import HomeTemplate from "../templates/home-template"
 
 import useLocalStorage from "../../hooks/use-local-storage";
 
-function List() {
+function MyList() {
   const header = { navData: navData, menuData: menuData };
   const footer = { genreData: genreData, helpData: helpData };
   const [ galleries, setGalleries ] = useState([]);
-
+  
   const { ids, toggleId: idToggleHandler, hasId: isInMyListHandler } = useLocalStorage('my-lists', new Set());
 
   useEffect(() => {
@@ -32,4 +32,4 @@ function List() {
   );
 }
 
-export default List;
+export default MyList;

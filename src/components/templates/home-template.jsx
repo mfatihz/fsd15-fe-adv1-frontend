@@ -1,10 +1,10 @@
 import Header from "../organisms/home-header"
 import Hero from "../organisms/hero"
 import Footer from "../organisms/home-footer"
-import GalleriesTemplate from "./galleries-template"
+import Galleries from "../organisms/galleries"
 import { useEffect, useRef } from 'react';
 import { usePopupDetail } from "../../stores/use-popup-detail";
-import PopupDetail from "../organisms/popup-detail";
+import PopupDetailCard from "../organisms/popup-detail-card";
 import { Toaster } from "sonner";
 
 function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMyListHandler }) {
@@ -26,7 +26,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
             document.documentElement.style.overflow = 'auto';
             document.body.style.overflow = 'auto';
         }
-
+        
         return () => {
             document.documentElement.style.overflow = 'auto';
             document.body.style.overflow = 'auto';
@@ -39,7 +39,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
             <Header
                 navData={header.navData}
                 menuData={header.menuData}
-                padding="
+                paddingClass="
                     px-4 sm:px-10 md:px-20
                     py-2 sm:py-4 md:py-6
                 "
@@ -50,19 +50,27 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                 { hero &&
                     <Hero
                         movies={hero}
-                        padding="
+                        paddingClass="
                             px-4 sm:px-10 md:px-20
                             pb-4 sm:pb-10 md:pb-20
                         "
                     />
                 }
             { isOpen && 
-                <PopupDetail />
+                <PopupDetailCard
+                    insetClass='inset-6 sm:inset-10 md:inset-20'
+                    paddingClass="
+                        px-4 sm:px-10 md:px-20
+                        my-2 sm:my-10
+                    "
+                    idToggleHandler={idToggleHandler}
+                    isInMyListHandler={isInMyListHandler}
+                />
             }
 
-                <GalleriesTemplate
+                <Galleries
                     galleries={galleries}
-                    padding="
+                    paddingClass="
                         px-4 sm:px-10 md:px-20
                         py-4 sm:py-10 md:py-20
                     "
@@ -74,7 +82,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
             <Footer
                 genreData={footer.genreData}
                 helpData={footer.helpData}
-                className="
+                paddingClass="
                     px-4 sm:px-10 md:px-20
                     py-10 md:py-20
                 "

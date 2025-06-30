@@ -23,6 +23,7 @@ function ChevronDownButton({ className, movieData }) {
 
   return (
     <button
+      type="button"
       className={clsx(baseStyle, className)}
       onClick={ handlePopupDetail }
     >

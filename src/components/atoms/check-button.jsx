@@ -16,6 +16,7 @@ function CheckButton({ isChecked=false, onClick, movieId }) {
 
   return (
     <button
+      type="button"
       className={ clsx(baseStyle, checkedClass) }
       onClick={ () => onClick(movieId) }
     >

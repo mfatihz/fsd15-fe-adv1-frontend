@@ -3,6 +3,7 @@ import icon from '../../assets/images/icons/play-icon.svg'
 function PlayButton({onClick}) {
     return (
     <button
+      type="button"
       className={`
         flex items-center justify-center 
         h-8 sm:h-11 w-8 sm:w-11

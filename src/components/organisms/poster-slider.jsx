@@ -10,7 +10,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
   const scrollContainerRef = useRef(null);
   const itemRef = useRef(null);
   const animationFrameRef = useRef(null);
-  
+
   const [isScrolling, setIsScrolling] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [showScrollButtons, setShowScrollButtons] = useState(false);
@@ -30,7 +30,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
 
     checkDeviceType();
     window.addEventListener('resize', checkDeviceType)
-    
+
     const checkIfMobile = () => {
       setIsMobile(
         // berdasarkan ukuran layar dan pemeriksaan type devices secara sederhana
@@ -44,7 +44,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         const itemWidth = itemRef.current.offsetWidth;
         const gap = 16; // space-x-4 = 16px
         const totalContentWidth = movies?.length * (itemWidth + gap) - gap;
-        
+
         setShowScrollButtons(
           !isWrapped && !isMobile &&
           totalContentWidth > container.offsetWidth
@@ -55,7 +55,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
     checkDeviceType();
     checkIfMobile();
     checkContentOverflow();
-    
+
     const resizeObserver = new ResizeObserver(checkContentOverflow);
     if (scrollContainerRef.current) {
       resizeObserver.observe(scrollContainerRef.current);
@@ -64,7 +64,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
     window.addEventListener('resize', getDeviceType);
     window.addEventListener('resize', checkIfMobile);
     window.addEventListener('resize', checkContentOverflow);
-    
+
     return () => {
       resizeObserver.disconnect();
       window.removeEventListener('resize', getDeviceType);
@@ -90,9 +90,9 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
       const elapsedTime = currentTime - startTime;
       const progress = Math.min(elapsedTime / duration, 1);
       const easedProgress = easeOutCubic(progress);
-      
+
       container.scrollLeft = start + distance * easedProgress;
-      
+
       if (progress < 1) {
         animationFrameRef.current = requestAnimationFrame(animateScroll);
       } else {
@@ -117,8 +117,8 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
     const scrollAmount = (itemWidth + gap) * 2;
     smoothScroll(scrollAmount);
   };
-  
-  const [xBoundary, setXBoundary] = useState({left:0, right:0});
+
+  const [xBoundary, setXBoundary] = useState({ left: 0, right: 0 });
 
   useEffect(() => {
     const updatePosition = () => {
@@ -151,22 +151,22 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         isInMyListHandler={isInMyListHandler}
       />
 
-      { showScrollButtons && 
+      {showScrollButtons &&
         <ScrollLeftButton
           onClick={(e) => {
             e.stopPropagation();
             handleScrollLeft();
           }}
-          className={ clsx(scrollButtonBaseStyle, "left-0 -translate-x-1/2") }
+          className={clsx(scrollButtonBaseStyle, "left-0 -translate-x-1/2")}
         />
       }
-      { showScrollButtons &&
-        <ScrollRightButton 
+      {showScrollButtons &&
+        <ScrollRightButton
           onClick={(e) => {
             e.stopPropagation();
             handleScrollRight();
           }}
-          className={ clsx(scrollButtonBaseStyle, "right-0 translate-x-1/2") }
+          className={clsx(scrollButtonBaseStyle, "right-0 translate-x-1/2")}
         />
       }
     </div>

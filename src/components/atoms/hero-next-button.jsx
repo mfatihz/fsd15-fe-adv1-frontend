@@ -3,6 +3,7 @@ import ImportantIcon from './important-icon'
 function HeroNextButton({ onClick = null}) {
   return (
     <button
+      type="button"
       className={`
         flex items-center justify-center gap-2
         text-xs sm:text-sm md:text-base

@@ -4,6 +4,7 @@ import ChevronDownImage from '../atoms/chevron-down-icon'
 function AvatarButton({onClick}) {
   return (
     <button
+      type="button"
       className="
         bg-transparent border-none cursor-pointer
         flex items-center gap-2

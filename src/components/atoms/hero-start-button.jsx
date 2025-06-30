@@ -1,6 +1,7 @@
 function HeroStartButton({ onClick = null }) {
   return (
     <button
+      type="button"
       className={`
         flex items-center justify-center
         text-xs sm:text-sm md:text-base

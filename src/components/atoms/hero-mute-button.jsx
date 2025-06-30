@@ -3,6 +3,7 @@ import muteOnIcon from '../../assets/images/icons/mute-on-icon.svg'
 function HeroMuteButton({ position = '', onClick = null }) {
   return (
     <button
+      type="button"
       className={`
         flex items-center justify-center 
         h-8 sm:h-11 w-8 sm:w-11

@@ -16,3 +16,7 @@ export const newDB = [
     12, 13, 8, 14, 15, 0, 16, 17,
     18, 6, 19, 20, 21, 9, 22, 23,
 ];
+
+export const recommendationDB = [
+    25, 2, 6, 18,
+];

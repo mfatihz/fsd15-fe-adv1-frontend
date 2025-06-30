@@ -1,4 +1,4 @@
-import { getMovies } from "./db-functions"
+import { getMovies } from "./_queryFunctions"
 
 export const myList = (ids) => [
     {

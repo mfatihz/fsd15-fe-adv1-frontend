@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./components/pages/home";
 import Login from "./components/pages/login";
-import List from "./components/pages/list";
+import MyList from "./components/pages/my-list";
 import UnderDevelopment from "./components/pages/under-development";
 import Register from "./components/pages/register";
 
@@ -12,7 +12,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/lists" element={<List />} />
+        <Route path="/lists" element={<MyList />} />
         {/* Header Links */}
         <Route path="/series" element={<UnderDevelopment tag="Series" />} />
         <Route path="/movies" element={<UnderDevelopment tag="Movies" />} />

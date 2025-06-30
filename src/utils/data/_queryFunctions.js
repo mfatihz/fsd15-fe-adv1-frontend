@@ -1,5 +1,5 @@
-import { moviesDB } from './movies-db'
-import { heroDB, continueDB, topDB, trendingDB, newDB } from './galleries-db'
+import { moviesDB } from './_movies-db'
+import { heroDB, continueDB, topDB, trendingDB, newDB, recommendationDB } from './_galleries-db'
 
 export const getMovies = (indexes) => indexes.map(i => moviesDB.find(movie => movie.id === i)).filter(Boolean);
 
@@ -8,3 +8,5 @@ export const continueData = getMovies(continueDB);
 export const topData = getMovies(topDB);
 export const trendingData = getMovies(trendingDB);
 export const newData = getMovies(newDB);
+
+export const recommendationData = getMovies(recommendationDB);

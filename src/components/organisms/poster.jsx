@@ -1,5 +1,5 @@
-import PosterDefault from '../molecules/poster-default'
-import PosterHover from '../molecules/poster-hover'
+import PosterDefaultCard from '../molecules/poster-default-card'
+import PosterHoverCard from '../molecules/poster-hover-card'
 import { useState, useRef } from 'react'
 
 function Poster({
@@ -50,7 +50,7 @@ function Poster({
       onMouseLeave={() => setIsHovered(false)}
       ref={posterRef}
     >
-      <PosterDefault
+      <PosterDefaultCard
         movie={ movie }
         galleryType={ galleryType }
         className={ isContinueType ? 'cursor-pointer' : '' }
@@ -62,7 +62,7 @@ function Poster({
           className="absolute z-30 top-1/2"
           style={getHoverPosition()}
         >
-          <PosterHover movie={movie} onClick={onClick} isInMyListHandler={isInMyListHandler}/>
+          <PosterHoverCard movie={movie} onClick={onClick} isInMyListHandler={isInMyListHandler}/>
         </div>
         }
     </div>
