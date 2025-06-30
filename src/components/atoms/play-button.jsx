@@ -6,7 +6,7 @@ function PlayButton({onClick}) {
       type="button"
       className={`
         flex items-center justify-center 
-        h-8 sm:h-11 w-8 sm:w-11
+        size-8 sm:size-11
         px-0.5
         rounded-full cursor-pointer
         box-border

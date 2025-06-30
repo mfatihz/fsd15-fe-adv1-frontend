@@ -59,7 +59,7 @@ function Poster({
           className="absolute z-30 top-1/2"
           style={getHoverPosition()}
         >
-          <PosterHoverCard movie={movie} onClick={onClick} isInMyListHandler={isInMyListHandler}/>
+          <PosterHoverCard movie={movie}  galleryType={ galleryType } onClick={onClick} isInMyListHandler={isInMyListHandler}/>
         </div>
         }
     </div>

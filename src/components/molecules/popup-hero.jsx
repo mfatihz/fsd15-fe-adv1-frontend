@@ -15,12 +15,15 @@ const PopupHero = ({ image, title, closeHandler, insetClass='inset-6 sm:inset-10
     return (
       <div className="relative">
         <CloseButton onClick={ closeHandler }/>
-        <CoverImage
-          src={ image }
-          className="
-            w-full object-cover
-            h-[225px] sm:h-[300px] md:h-[554px] 
-        "/>
+        {/* <div className="relative"> */}
+          <CoverImage
+            src={ image }
+            className="
+              w-full object-cover
+              h-[225px] sm:h-[300px] md:h-[554px] 
+          "/>
+          {/* <div className="absolute b-0 border bg-gradient-to-t from-black to-transparent h-32 w-full"></div>
+        </div> */}
         <div className={clsx(baseStyle, insetClass)}>  
           <PosterTitle className="text-xl">{title }</PosterTitle>
           <div className="flex gap-4">

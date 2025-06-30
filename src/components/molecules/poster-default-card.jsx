@@ -12,14 +12,18 @@ function PosterDefault({ movie, galleryType = "" }) {
     galleryType === "continue" ? "rounded-none" : "rounded-lg";
 
   const widthClass =
-    galleryType === "myList"
-      ? "w-[140px] sm:w-[211px]"
-      : galleryType === "continue"
-        ? "w-[181px] sm:w-[272px] md:w-[302px]"
-        : "w-[140px] sm:w-[211px] md:w-[234px]";
+    galleryType === "recommendation"
+      ? "w-[105px] sm:w-[158px]"
+      : galleryType === "myList"
+        ? "w-[140px] sm:w-[211px]"
+        : galleryType === "continue"
+          ? "w-[181px] sm:w-[272px] md:w-[302px]"
+          : "w-[140px] sm:w-[211px] md:w-[234px]";
 
   const heightClass =
-    galleryType === "myList"
+    galleryType === "recommendation"
+      ? "h-[164px] sm:h-[246px]"
+      : galleryType === "myList"
       ? "h-[219px] sm:h-[328px]"
       : galleryType === "continue"
         ? "h-[97px] sm:h-[146px] md:h-[162px]"
@@ -29,9 +33,9 @@ function PosterDefault({ movie, galleryType = "" }) {
     galleryType === "continue"
       ? movie?.images.landscape
       : movie?.images.portrait;
-  
-  const pointerClass = 
-    galleryType==='continue'?
+
+  const pointerClass =
+    galleryType === 'continue' ?
       'cursor-pointer' : '';
 
   return (

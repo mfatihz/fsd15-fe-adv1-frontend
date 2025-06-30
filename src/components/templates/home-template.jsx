@@ -58,10 +58,10 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                 }
             { isOpen && 
                 <PopupDetailCard
-                    insetClass='inset-6 sm:inset-10 md:inset-20'
+                    heroInsetClass='inset-4 sm:inset-8 md:inset-16'
                     paddingClass="
-                        px-4 sm:px-10 md:px-20
-                        my-2 sm:my-10
+                        px-4 sm:px-8 md:px-16
+                        my-2 sm:my-8
                     "
                     idToggleHandler={idToggleHandler}
                     isInMyListHandler={isInMyListHandler}

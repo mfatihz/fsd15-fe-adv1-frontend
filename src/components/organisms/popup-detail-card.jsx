@@ -35,6 +35,7 @@ const PopupDetailCard = ({
       flex justify-center
       bg-black/70 bg-opacity-90
       overflow-y-auto
+      p-10
     "
     >
       {/* scrollable */}
@@ -43,7 +44,7 @@ const PopupDetailCard = ({
         <div
           ref={dropdownRef}
           className="
-            relative min-w-sm max-w-[800px]
+            relative min-w-sm max-w-3xl
             flex flex-col
             rounded-lg sm:rounded-xl md:rounded-2xl
             overflow-hidden
