@@ -1,10 +1,12 @@
-import React from 'react'
+import clsx from 'clsx';
 
 const TitledInfo = ({ title, children}) => {
+    const textStyleClass = 'align-text-top text-neutral-400 font-normal tracking-tighter';
+
     return (
         <div>
-            <div className='w-4/12 inline-block align-text-top text-neutral-400 font-normal tracking-tighter'>{title}</div>
-            {title && <div className='inline-block align-text-top me-1.5'>:</div>}
+            <div className={clsx('w-4/12 inline-block', textStyleClass)}>{title}</div>
+            {title && <div className={clsx('inline-block mx-1.5', textStyleClass)}>:</div>}
             <div className={`inline-block align-text-top ${title ? "w-7/12" : ""}`}>
                 { children }
             </div>

@@ -1,9 +1,9 @@
 import Header from "../organisms/home-header"
 import Hero from "../organisms/hero"
 import Footer from "../organisms/home-footer"
-import Galleries from "../organisms/galleries"
+import PosterGalleries from "../organisms/poster-galleries"
 import { useEffect, useRef } from 'react';
-import { usePopupDetail } from "../../stores/use-popup-detail";
+import { usePopupDetailStore } from "../../stores/use-popup-detail";
 import PopupDetailCard from "../organisms/popup-detail-card";
 import { Toaster } from "sonner";
 
@@ -14,7 +14,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
         topRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
 
-    const { isOpen } = usePopupDetail();
+    const { isOpen } = usePopupDetailStore();
 
     useEffect(() => {
         if (isOpen) {
@@ -23,18 +23,18 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
         } else {
-            document.documentElement.style.overflow = 'auto';
-            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflowY = 'auto';
+            document.body.style.overflowY = 'auto';
         }
         
         return () => {
-            document.documentElement.style.overflow = 'auto';
-            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflowY = 'auto';
+            document.body.style.overflowY = 'auto';
         };
     }, [isOpen]);
   
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen w-dvw flex flex-col mx-auto">
             <Toaster position='top-center'/>
             <Header
                 navData={header.navData}
@@ -58,7 +58,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                 }
             { isOpen && 
                 <PopupDetailCard
-                    heroInsetClass='inset-4 sm:inset-8 md:inset-16'
+                    heroPaddingClass='p-4 sm:p-8 md:p-16'
                     paddingClass="
                         px-4 sm:px-8 md:px-16
                         my-2 sm:my-8
@@ -68,7 +68,7 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                 />
             }
 
-                <Galleries
+                <PosterGalleries
                     galleries={galleries}
                     paddingClass="
                         px-4 sm:px-10 md:px-20
@@ -86,6 +86,8 @@ function HomeTemplate({ header, footer, hero, galleries, idToggleHandler, isInMy
                     px-4 sm:px-10 md:px-20
                     py-10 md:py-20
                 "
+                componentGapClass="gap-4 sm:gap-8 md:gap-12"
+                contentGap='gap-2 sm:gap-4 md:gap-6'
                 onClick={scrollToTop}
             />
         </div>

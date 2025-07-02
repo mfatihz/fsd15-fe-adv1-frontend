@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export const usePopupDetail = create(
+export const usePopupDetailStore = create(
     (set) => ({
         movieData: null,
         isOpen: false,

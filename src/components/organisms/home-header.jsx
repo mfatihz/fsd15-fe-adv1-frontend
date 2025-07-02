@@ -7,7 +7,7 @@ import clsx from "clsx";
 // Jangan menggunakan ref sebagai props karena ref adalah reserved word
 // Disarankan melalui forwardRef
 const HomeHeader = forwardRef(({ navData, menuData, paddingClass }, ref) => {
-  const baseStyle = "w-full flex gap-4 sm:gap-8 items-center bg-[#181A1C]";
+  const baseStyle = "w-full flex gap-4 sm:gap-8 items-center";
 
   return (
     <header className={clsx(baseStyle, paddingClass)} ref={ref}>

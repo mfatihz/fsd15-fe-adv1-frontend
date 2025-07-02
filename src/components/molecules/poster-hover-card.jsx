@@ -56,7 +56,7 @@ function PosterHoverCard({ movie, galleryType, onClick, isInMyListHandler }) {
         <div className='flex gap-3 sm:gap-4 text-xs sm:text-sm content-center items-center'>
           <PosterContentRating>{ movie.contentRating }</PosterContentRating>
           { movie.type == "series" ?
-            (movie.episodes && <PosterChip content={movie.episodes} suffix='episode'/>) :
+            (movie.episodes && <PosterChip content={movie.episodes} suffix='episodes'/>) :
             (movie.duration && <PosterChip content={movie.duration} suffix="duration" />)
           }
         </div>

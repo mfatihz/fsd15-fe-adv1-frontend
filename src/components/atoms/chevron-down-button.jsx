@@ -1,6 +1,6 @@
 import icon from '../../assets/images/icons/chevron-down-icon.svg'
 import clsx from 'clsx'
-import { usePopupDetail } from '../../stores/use-popup-detail';
+import { usePopupDetailStore } from '../../stores/use-popup-detail';
 
 function ChevronDownButton({ className, movieData }) {
   const baseStyle = `
@@ -14,7 +14,7 @@ function ChevronDownButton({ className, movieData }) {
     hover:scale-105 hover:shadow-md
   `
 
-  const { setMovieData, open: openPopup } = usePopupDetail();
+  const { setMovieData, open: openPopup } = usePopupDetailStore();
   
   const handlePopupDetail = () => {
     setMovieData(movieData);

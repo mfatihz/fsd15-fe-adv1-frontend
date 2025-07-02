@@ -1,23 +1,25 @@
 import { useRef, useEffect } from "react";
-import { usePopupDetail } from "../../stores/use-popup-detail";
+import { usePopupDetailStore } from "../../stores/use-popup-detail";
 import PopupHero from "../molecules/popup-hero";
 import PopupContent from "../molecules/popup-content";
-import Galleries from "./galleries";
-import { recommendationGalleries } from "../../utils/data/recommendation-data";
+import PosterGalleries from "./poster-galleries";
+import { recommendationGalleriesData, seriesEpisodeGalleriesData } from "../../utils/data/popup-page-data";
+import ThumbnailGallery from "./thumbnail-gallery";
 
 const PopupDetailCard = ({
-  heroInsetClass,
+  heroPaddingClass,
   paddingClass,
   idToggleHandler,
   isInMyListHandler,
 }) => {
-  const dropdownRef = useRef(null);
-  const { movieData, close: closeHandler } = usePopupDetail();
-  const galleries = recommendationGalleries;
+  const popupRef = useRef(null);
+  const { movieData, close: closeHandler } = usePopupDetailStore();
+
+  const episodeGalleriesData = seriesEpisodeGalleriesData(movieData.id);
 
   useEffect(() => {
     const handleClickOutsideDetail = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
         closeHandler();
       }
     };
@@ -28,7 +30,7 @@ const PopupDetailCard = ({
   }, [closeHandler]);
 
   return (
-    // background translucent
+    // translucent dark-bg
     <div
       className="
       fixed inset-0 z-50
@@ -42,29 +44,37 @@ const PopupDetailCard = ({
       <div className="relative">
         {/* card */}
         <div
-          ref={dropdownRef}
+          ref={popupRef}
           className="
-            relative min-w-sm max-w-3xl
+            relative min-w-sm w-3xl
             flex flex-col
             rounded-lg sm:rounded-xl md:rounded-2xl
             overflow-hidden
-            bg-[#0f0f1a] shadow-xl
-        ">
+            bg-[#181A1C] shadow-xl pb-10
+        "
+        >
           <PopupHero
             image={movieData?.images?.landscape}
             title={movieData.title}
             closeHandler={closeHandler}
-            insetClass={heroInsetClass}
+            paddingClass={heroPaddingClass}
           />
 
           <PopupContent movieData={movieData} paddingClass={paddingClass} />
 
-          <Galleries
-            galleries={galleries}
-            paddingClass={paddingClass}
-            idToggleHandler={idToggleHandler}
-            isInMyListHandler={isInMyListHandler}
-          />
+          { movieData.type === "series"
+            ? <ThumbnailGallery 
+                title={episodeGalleriesData.title}
+                episodes={episodeGalleriesData.movies}
+                paddingClass={paddingClass}
+              />
+            : <PosterGalleries
+                galleries={recommendationGalleriesData}
+                paddingClass={paddingClass}
+                idToggleHandler={idToggleHandler}
+                isInMyListHandler={isInMyListHandler}
+              />
+          }
         </div>
       </div>
     </div>

@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 
-const GalleryTitle = ({children, position="absolute -top-2 left-0"}) => {
+const GalleryTitle = ({children, positionClass}) => {
     const baseStyle = "text-xl md:text-3xl font-medium"
 
     return (
-        <div className={clsx(baseStyle, position)}>
+        <div className={clsx(baseStyle, positionClass)}>
             {children}
         </div>
     );

@@ -13,7 +13,7 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
 - [ ] Fetching (Axios) untuk consume API.
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.\
     done:
-    - Zustand: usePopupDetail (in folder: src\stores\\)\
+    - Zustand: usePopupDetailStore (in folder: src\stores\\)\
         implementasi:
         - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
         - pada Poster: untuk menampilkan PopupDetail component

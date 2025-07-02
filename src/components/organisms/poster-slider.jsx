@@ -160,6 +160,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
           className={clsx(scrollButtonBaseStyle, "left-0 -translate-x-1/2")}
         />
       }
+      
       {showScrollButtons &&
         <ScrollRightButton
           onClick={(e) => {

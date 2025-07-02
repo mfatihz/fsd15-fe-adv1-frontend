@@ -18,5 +18,5 @@ export const newDB = [
 ];
 
 export const recommendationDB = [
-    25, 2, 6, 18,
+    25, 2, 23, 18,
 ];

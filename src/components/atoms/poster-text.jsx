@@ -1,7 +1,7 @@
 
-const PosterText = ({children, className='text-[0.65rem] sm:text-sm'}) => {
+const PosterText = ({children, styleClass='text-[0.65rem] sm:text-sm'}) => {
     return (
-        <div className={className}>
+        <div className={styleClass}>
             { children }
         </div>
     );

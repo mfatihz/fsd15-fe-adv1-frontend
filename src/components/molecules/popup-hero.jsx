@@ -4,27 +4,22 @@ import HeroMuteButton from "../atoms/hero-mute-button";
 import HeroStartButton from "../atoms/hero-start-button";
 import AddButton from "../atoms/add-button";
 import CloseButton from "../atoms/close-button";
-import clsx from 'clsx';
+import HeroContainer from "../atoms/hero-container";
 
-const PopupHero = ({ image, title, closeHandler, insetClass='inset-6 sm:inset-10 md:inset-20' }) => {
-    const baseStyle = `
-      absolute
-      flex flex-col gap-4 justify-end
-    `
+const PopupHero = ({ image, title, closeHandler, paddingClass }) => {
+    const heightClass = 'h-[225px] sm:h-[300px] md:h-[354px]'
     
     return (
-      <div className="relative">
+      // <div className="relative">
+      <HeroContainer imageUrl={image} heightClass={heightClass} paddingClass={paddingClass}>
         <CloseButton onClick={ closeHandler }/>
-        {/* <div className="relative"> */}
-          <CoverImage
+          {/* <CoverImage
             src={ image }
             className="
               w-full object-cover
               h-[225px] sm:h-[300px] md:h-[554px] 
-          "/>
-          {/* <div className="absolute b-0 border bg-gradient-to-t from-black to-transparent h-32 w-full"></div>
-        </div> */}
-        <div className={clsx(baseStyle, insetClass)}>  
+          "/> */}
+        <div className='w-full self-end flex flex-col gap-2 md:gap-4'>
           <PosterTitle className="text-xl">{title }</PosterTitle>
           <div className="flex gap-4">
             <HeroStartButton />
@@ -32,7 +27,8 @@ const PopupHero = ({ image, title, closeHandler, insetClass='inset-6 sm:inset-10
             <HeroMuteButton position='right'/>
           </div>
         </div>
-      </div>
+      </HeroContainer>
+      // </div>
     );
 }
 

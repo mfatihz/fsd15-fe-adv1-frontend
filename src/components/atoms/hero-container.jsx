@@ -1,19 +1,18 @@
 import clsx from 'clsx'
 
-function HeroContainer({ imageUrl, children, paddingClass='' }) {
+function HeroContainer({ imageUrl, children, heightClass='', paddingClass='', styleClass='' }) {
     const baseStyle=`
         flex
-        w-screen box-border
-        h-[225px] sm:h-[300px] md:h-[587px]
+        w-full box-border
         overflow-hidden bg-cover bg-center bg-no-repeat
     `
     
     return (
         <div
-            className={clsx(baseStyle, paddingClass)}
+            className={clsx(baseStyle, heightClass, paddingClass, styleClass)}
             
             style={{
-                 backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0)), url(${imageUrl})`
+                 backgroundImage: `linear-gradient(0deg, rgba(24, 26, 28, 1), rgba(0, 0, 0, 0)), url(${imageUrl})`
             }}
         >
             { children }

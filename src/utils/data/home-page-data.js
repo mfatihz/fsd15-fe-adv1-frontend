@@ -1,23 +1,24 @@
-import { heroData, continueData, topData, trendingData, newData } from "./_queryFunctions"
+import { getMovies } from "./_queryFunctions"
+import { heroDB, continueDB, topDB, trendingDB, newDB } from './_galleries-db'
 
-export const movieHero = heroData
+export const movieHero = getMovies(heroDB);
 
 export const movieGalleries = [
     {
         title: "Melanjutkan Tonton Film",
         galleryType: "continue",
-        movies: continueData,
+        movies: getMovies(continueDB),
     },
     {
         title: "Top Rating Film dan Series Hari ini",
-        movies: topData,
+        movies: getMovies(topDB),
     },
     {
         title: "Film Trending",
-        movies: trendingData,
+        movies: getMovies(trendingDB),
     },
     {
         title: "Rilis Baru",
-        movies: newData,
+        movies: getMovies(newDB),
     },
 ]

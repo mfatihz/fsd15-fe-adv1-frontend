@@ -22,7 +22,7 @@ const PopupContent = ({ movieData, paddingClass }) => {// TODO: extract gapClass
               <div className="flex gap-4 items-center">
                 <PosterChip content={movieData.yearRelease} />
                 {movieData.type == "series" ?
-                  (movieData.episodes && <PosterChip content={movieData.episodes} suffix='episode' />) :
+                  (movieData.episodes && <PosterChip content={movieData.episodes} suffix='episodes' />) :
                   (movieData.duration && <PosterChip content={movieData.duration} suffix="duration" />)
                 }
                 <PosterContentRating type='rect'>{movieData.contentRating}</PosterContentRating>
@@ -34,7 +34,7 @@ const PopupContent = ({ movieData, paddingClass }) => {// TODO: extract gapClass
           </div>
         </div>
         <div className="flex-4">
-          <div className="flex flex-col gap-1 mt-0 sm:mt-8">
+          <div className="flex flex-col gap-1 mt-0 sm:mt-4">
             <TitledInfo title={'Cast'}>{movieData.cast}</TitledInfo>
             <TitledInfo title={'Genre'}>{movieData.genres.join(', ')}</TitledInfo>
             <TitledInfo title={'Pembuat Film'}>{movieData.director}</TitledInfo>

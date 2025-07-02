@@ -10,7 +10,7 @@ function Poster({
   onClick,
   isInMyListHandler,
 }) {
-  //const { isOpen } = usePopupDetail
+  //const { isOpen } = usePopupDetailStore
   const [isHovered, setIsHovered] = useState(false)
   const posterRef = useRef(null)
 
