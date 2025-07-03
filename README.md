@@ -41,7 +41,7 @@ Poin Penilaian
 - [ ] Implementasi API yang dinamis untuk GET, UPDATE, ADD, dan DELETE
 
 
-Fitur app:
+# Fitur App
 - [x] Masuk: add auth
 - [x] Daftar
 - [x] Beranda
