@@ -4,6 +4,8 @@ import Login from "./components/pages/login";
 import MyList from "./components/pages/my-list";
 import UnderDevelopment from "./components/pages/under-development";
 import Register from "./components/pages/register";
+import Movies from "./components/pages/movies";
+import Series from "./components/pages/series";
 
 function App() {
   return (
@@ -14,8 +16,8 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/lists" element={<MyList />} />
         {/* Header Links */}
-        <Route path="/series" element={<UnderDevelopment tag="Series" />} />
-        <Route path="/movies" element={<UnderDevelopment tag="Movies" />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/movies" element={<Movies />} />
         {/* Menu */}
         <Route path="/profile" element={<UnderDevelopment tag="Profile" header={<p>mfatihz.std@gmail.com</p>}/>} />
         <Route path="/premium" element={<UnderDevelopment tag="Premium" />} />

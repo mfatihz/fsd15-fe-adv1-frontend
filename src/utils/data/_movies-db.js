@@ -74,10 +74,10 @@ export const moviesDB = [
     {
         "id": 3,
         "parent": null,
-        "title": "Avatar",
+        "title": "Avatar 3",
         "type": "movie",
         "yearRelease": 2023,
-        "cast": "Avatar, Dan, Lain, Lain2",
+        "cast": "Avatar, Tiga, Dan, Lain, Lain2",
         "director": "Ava",
         "genres": ["movie", "series", "anime"],
         "badges": ["top"],
@@ -86,11 +86,11 @@ export const moviesDB = [
         "contentRating": "18+",
         "userRating": 4.7,
         "images": {
-            "hero": "",
+            "hero": "/images/hero/avatar.svg",
             "portrait": "/images/poster-portrait/avatar.svg",
             "landscape": "/images/poster-landscape/avatar.svg"
         },
-        "summary": `[short] Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas donec vivamus aptent proin, erat odio risus mi leo penatibus sed aliquet nibh dis.`
+        "summary": `"Avatar 3" melanjutkan cerita konflik antara manusia dan Na'vi di planet Pandora. Dalam pertempuran untuk sumber daya dan kekuasaan, manusia dan sekutu Na'vi bersatu untuk melindungi tanah mereka. Film ini mengangkat tema persatuan dan perlawanan terhadap eksploitasi.`
     },
     {
         "id": 4,
@@ -313,12 +313,11 @@ export const moviesDB = [
         "contentRating": "18+",
         "userRating": 4.7,
         "images": {
-            "hero": "",
+            "hero": "/images/hero/happiness.svg",
             "portrait": "/images/poster-portrait/happiness.svg",
             "landscape": "/images/poster-landscape/happiness.svg"
         },
-        "summary": `[medium] Lorem ipsum dolor sit amet consectetur adipiscing elit maecenas donec vivamus aptent proin, erat odio risus mi leo penatibus sed aliquet nibh dis. 
-        Curae cursus turpis fames at dictum tempor nostra placerat ridiculus, maecenas neque quam egestas aliquet luctus a suspendisse, curabitur lacus platea habitant tristique faucibus augue torquent.`
+        "summary": `Mengisahkan tentang kelompok orang yang berjuang untuk bertahan hidup di dalam sebuah gedung apartemen yang penuh dengan zombie. Sayangnya, virus zombie hanya terdapat di dalam area apartemen tersebut dan tidak menyebar ke luar kawasan apartemen.`
     },
     {
         "id": 14,

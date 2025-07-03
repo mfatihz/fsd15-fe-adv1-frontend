@@ -39,3 +39,20 @@ Catatan:
 
 Poin Penilaian
 - [ ] Implementasi API yang dinamis untuk GET, UPDATE, ADD, dan DELETE
+
+
+Fitur app:
+- [-] Masuk: add auth
+- [ ] Daftar
+- [ ] Beranda
+- [x] Daftar Saya
+- [ ] Series: add filter
+- [ ] Film: add filter
+- [x] Popup Series
+- [x] Popup Film
+- [ ] Tonton
+- [ ] Popup Premium
+- [ ] Profil
+- [ ] Paket
+- [ ] Pembayaran
+- [ ] Tunggu Pembayaran

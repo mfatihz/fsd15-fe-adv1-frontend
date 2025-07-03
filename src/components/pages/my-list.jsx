@@ -1,19 +1,15 @@
 import { useEffect, useState } from 'react';
-import { navData, menuData, genreData, helpData } from "../../utils/app/home-utils"
 import { myList } from "../../utils/data/my-list-page-data"
-import HomeTemplate from "../templates/home-template"
+import MainPageTemplate from "../templates/main-page-template"
 
 import useLocalStorage from "../../hooks/use-local-storage";
 
 function MyList() {
-  const header = { navData: navData, menuData: menuData };
-  const footer = { genreData: genreData, helpData: helpData };
   const [ galleries, setGalleries ] = useState([]);
   
-  const { ids, toggleId: idToggleHandler, hasId: isInMyListHandler } = useLocalStorage('my-lists', new Set());
+  const { ids } = useLocalStorage('my-lists', new Set());
 
   useEffect(() => {
-    // Convert Set to Array and fetch movies whenever ids change
     const fetchMovies = async () => {
       setGalleries(myList(ids));
     };
@@ -22,12 +18,8 @@ function MyList() {
   }, [ids]);
   
   return (
-    <HomeTemplate
-      header={header}
-      footer={footer}
+    <MainPageTemplate
       galleries={galleries}
-      idToggleHandler={idToggleHandler}
-      isInMyListHandler={isInMyListHandler}
     />
   );
 }

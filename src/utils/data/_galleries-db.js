@@ -1,5 +1,9 @@
 export const heroDB = [10];
 
+export const seriesHeroDB = [13]
+
+export const moviesHeroDB = [3]
+
 export const continueDB = [
     25, 2, 6, 18, 26, 16,
     1, 11, 22, 12, 3, 17,
@@ -20,3 +24,5 @@ export const newDB = [
 export const recommendationDB = [
     25, 2, 23, 18,
 ];
+
+export const presentDB = [7, 0, 1, 2, 25, 3, 4, 5, 24, 6, 18, 26, 16,]
