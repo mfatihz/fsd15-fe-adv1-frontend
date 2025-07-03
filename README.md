@@ -42,9 +42,9 @@ Poin Penilaian
 
 
 Fitur app:
-- [-] Masuk: add auth
-- [ ] Daftar
-- [ ] Beranda
+- [x] Masuk: add auth
+- [x] Daftar
+- [x] Beranda
 - [x] Daftar Saya
 - [ ] Series: add filter
 - [ ] Film: add filter
