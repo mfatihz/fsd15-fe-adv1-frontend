@@ -37,7 +37,7 @@ const PopupDetailCard = ({
       flex justify-center
       bg-black/85
       overflow-y-auto
-      p-10
+      p-4 sm:p-6 md:p-10
     "
     >
       {/* scrollable */}
@@ -46,7 +46,7 @@ const PopupDetailCard = ({
         <div
           ref={popupRef}
           className="
-            relative min-w-sm max-w-3xl
+            relative max-w-3xl
             flex flex-col
             rounded-lg sm:rounded-xl md:rounded-2xl
             overflow-hidden
@@ -58,7 +58,7 @@ const PopupDetailCard = ({
             title={movieData.title}
             closeHandler={closeHandler}
             paddingClass={heroPaddingClass}
-            styleClass='mb-4'
+            styleClass='mb-3 sm:mb-1'
           />
 
           <PopupContent movieData={movieData} paddingClass={paddingClass} />

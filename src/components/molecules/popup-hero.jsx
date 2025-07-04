@@ -6,12 +6,11 @@ import AddButton from "../atoms/add-button";
 import CloseButton from "../atoms/close-button";
 import HeroContainer from "../atoms/hero-container";
 
-const PopupHero = ({ image, title, closeHandler, paddingClass }) => {
+const PopupHero = ({ image, title, closeHandler, paddingClass, styleClass }) => {
     const heightClass = 'h-[225px] sm:h-[300px] md:h-[354px]'
     
     return (
-      // <div className="relative">
-      <HeroContainer imageUrl={image} heightClass={heightClass} paddingClass={paddingClass}>
+      <HeroContainer imageUrl={image} heightClass={heightClass} paddingClass={paddingClass} styleClass={styleClass}>
         <CloseButton onClick={ closeHandler }/>
         <div className='w-full self-end flex flex-col gap-2 md:gap-4'>
           <PosterTitle className="text-xl">{title }</PosterTitle>
