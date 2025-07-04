@@ -13,12 +13,6 @@ const PopupHero = ({ image, title, closeHandler, paddingClass }) => {
       // <div className="relative">
       <HeroContainer imageUrl={image} heightClass={heightClass} paddingClass={paddingClass}>
         <CloseButton onClick={ closeHandler }/>
-          {/* <CoverImage
-            src={ image }
-            className="
-              w-full object-cover
-              h-[225px] sm:h-[300px] md:h-[554px] 
-          "/> */}
         <div className='w-full self-end flex flex-col gap-2 md:gap-4'>
           <PosterTitle className="text-xl">{title }</PosterTitle>
           <div className="flex gap-4">
