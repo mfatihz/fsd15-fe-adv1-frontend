@@ -1,5 +1,13 @@
 # CHILL App
 
+Bacaan:/  
+https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
+How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend
+https://www.youtube.com/watch?v=mKmxc8TcWQ8/  
+https://github.com/internetdrew/vite-express-vercel/  
+https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
+https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
+
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
 Stack: Vite + React + React Router + tailwind\
@@ -33,7 +41,7 @@ Instructions
 - [ ] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
-- [ ] Dapat mengimplementasikan interceptor
+- [ ] Boleh mengimplementasikan interceptor
 - [ ] Simpan basic url pada .env
 - [ ] Bisa menggunakan custom hooks untuk memisahkan API dari komponen React
 

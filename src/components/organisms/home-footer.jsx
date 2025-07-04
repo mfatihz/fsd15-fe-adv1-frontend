@@ -11,9 +11,9 @@ const HomeFooter = ({ genreData, helpData, paddingClass, componentGapClass, cont
   const genreLinks = <FooterLinks 
     links={ genreData.links }
     basePath={ genreData.basePath }
-    columnClass='columns-2 md:columns-4'
-    gapClass={contentGap}
+    styleClass={contentGap + 'columns-1 sm:columns-2 md:columns-4 mx-4 sm:mx-1 md:mx-0'}
   />
+
   const helpLinks = <FooterLinks 
     links={ helpData.links }
     basePath={ helpData.basePath }
@@ -22,14 +22,18 @@ const HomeFooter = ({ genreData, helpData, paddingClass, componentGapClass, cont
   return (
     <footer className={clsx(baseStyle, paddingClass, componentGapClass, contentGap)}>
       <FooterLogoSection onClick={ onClick }/>
+
       <FooterGroup
         title={ genreData.title }
-        links={ genreLinks }
-      />
+        styleClass='flex-1 sm:justify-items-end'
+      >{ genreLinks }
+      </FooterGroup>
+
       <FooterGroup
         title={ helpData.title }
-        links={ helpLinks }
-      />
+      >
+        { helpLinks }
+      </FooterGroup>
     </footer>
   );
 };

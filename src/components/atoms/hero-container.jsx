@@ -12,7 +12,7 @@ function HeroContainer({ imageUrl, children, heightClass='', paddingClass='', st
             className={clsx(baseStyle, heightClass, paddingClass, styleClass)}
             
             style={{
-                 backgroundImage: `linear-gradient(0deg, rgba(24, 26, 28, 1), rgba(0, 0, 0, 0)), url(${imageUrl})`
+                 backgroundImage: `linear-gradient(0deg, rgba(24, 26, 28, 0.9), rgba(0, 0, 0, 0)), url(${imageUrl})`
             }}
         >
             { children }

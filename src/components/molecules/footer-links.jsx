@@ -1,10 +1,10 @@
 import FooterLinkItem from "../atoms/footer-link-item";
 import clsx from 'clsx'
 
-const FooterLinks = ({ links, basePath = "", columnClass="", gapClass="" }) => {
+const FooterLinks = ({ links, basePath = "", styleClass="" }) => {
   return (
     <div
-      className={clsx("mx-4 sm:mx-0", columnClass, gapClass)}
+      className={clsx("mx-4 sm:mx-0", styleClass )}
     >
       {links.map(({ label, path }) => (
         <FooterLinkItem key={label} to={`${basePath}${path}`}>

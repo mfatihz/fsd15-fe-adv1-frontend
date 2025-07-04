@@ -9,7 +9,7 @@ function HeroActions({ children }) {
       <HeroStartButton />
       <HeroNextButton />
       { children && <HeroContentRatingLabel>{ children }</HeroContentRatingLabel> }
-      <HeroMuteButton position='right'/>
+      <HeroMuteButton positionClass='ml-auto'/>
     </div>
   )
 }

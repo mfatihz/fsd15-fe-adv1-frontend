@@ -9,9 +9,11 @@ function Hero({ movies, paddingClass }) {
 
     return (
         <HeroContainer imageUrl={movie?.images.hero} heightClass={heroHeightClass} paddingClass={paddingClass}>
-            <div className="w-auto self-end flex flex-col gap-2 md:gap-4">
-                <HeroTitle>{movie?.title}</HeroTitle>
-                <HeroSummary>{movie?.summary}</HeroSummary>
+            <div className="w-full self-end flex flex-col gap-4 md:gap-10">
+                <div className="flex flex-col gap-2 md:gap-5">
+                    <HeroTitle>{movie?.title}</HeroTitle>
+                    <HeroSummary>{movie?.summary}</HeroSummary>
+                </div>
                 <HeroActions>{movie?.contentRating}</HeroActions>
             </div>
         </HeroContainer>

@@ -2,10 +2,12 @@ import { moviesDB } from './_movies-db'
 import { episodesDB } from './_episodes-db'
 import { viewHistoriesDB } from './_view-histories-db'
 
-export const getMovies = (indexes, filter='') => indexes.map(
+export const getMovies = (indexes, type='all', genre='all') => indexes.map(
     i => moviesDB.find(movie => movie.id === i)
 ).filter(Boolean).filter(
-    mapped => filter ==='' ? true : mapped.type === filter
+    mapped => (type ==='' || type ==='all') ? true : mapped.type === type
+).filter(
+    mapped => (genre ==='' || genre ==='all') ? true : mapped.genres.includes(genre)
 );
 
 export const getEpisodes = (parentId) => episodesDB.filter(

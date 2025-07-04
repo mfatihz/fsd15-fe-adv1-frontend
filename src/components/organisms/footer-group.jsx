@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import clsx from 'clsx'
 import FooterGroupTitle from "../molecules/footer-group-title";
 
-const FooterGroup = ({ title, links, className="" }) => {
+const FooterGroup = ({ title, children, styleClass="" }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -25,9 +24,12 @@ const FooterGroup = ({ title, links, className="" }) => {
   };
 
   return (
-    <div className={clsx("flex flex-col gap-2 sm:gap-4", className)}>
-      <FooterGroupTitle title={title} isMobile={isMobile} isOpen={isOpen} onClick={handleToggle} />
-      { isOpen && links }
+    <div className={styleClass}>
+      <div className="flex flex-col gap-2 sm:gap-4">
+        <FooterGroupTitle title={title} isMobile={isMobile} isOpen={isOpen} onClick={handleToggle} />
+      { isOpen && children }
+      </div>
+      
     </div>
   );
 };
