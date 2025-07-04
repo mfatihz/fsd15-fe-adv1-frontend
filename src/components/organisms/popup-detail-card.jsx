@@ -3,7 +3,10 @@ import { usePopupDetailStore } from "../../stores/use-popup-detail";
 import PopupHero from "../molecules/popup-hero";
 import PopupContent from "../molecules/popup-content";
 import PosterGalleries from "./poster-galleries";
-import { recommendationGalleriesData, seriesEpisodeGalleriesData } from "../../utils/data/popup-page-data";
+import {
+  recommendationGalleriesData,
+  seriesEpisodeGalleriesData,
+} from "../../utils/data/popup-page-data";
 import ThumbnailGallery from "./thumbnail-gallery";
 
 const PopupDetailCard = ({
@@ -58,24 +61,25 @@ const PopupDetailCard = ({
             title={movieData.title}
             closeHandler={closeHandler}
             paddingClass={heroPaddingClass}
-            styleClass='mb-3 sm:mb-1'
+            styleClass="mb-3 sm:mb-1"
           />
 
           <PopupContent movieData={movieData} paddingClass={paddingClass} />
 
-          { movieData.type === "series"
-            ? <ThumbnailGallery 
-                title={episodeGalleriesData.title}
-                episodes={episodeGalleriesData.movies}
-                paddingClass={paddingClass}
-              />
-            : <PosterGalleries
-                galleries={recommendationGalleriesData}
-                paddingClass={paddingClass}
-                idToggleHandler={idToggleHandler}
-                isInMyListHandler={isInMyListHandler}
-              />
-          }
+          {movieData.type === "series" ? (
+            <ThumbnailGallery
+              title={episodeGalleriesData.title}
+              episodes={episodeGalleriesData.movies}
+              paddingClass={paddingClass}
+            />
+          ) : (
+            <PosterGalleries
+              galleries={recommendationGalleriesData}
+              paddingClass={paddingClass}
+              idToggleHandler={idToggleHandler}
+              isInMyListHandler={isInMyListHandler}
+            />
+          )}
         </div>
       </div>
     </div>
