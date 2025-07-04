@@ -34,7 +34,7 @@ const PopupDetailCard = ({
     <div
       className="
       fixed inset-0 z-50
-      flex justify-center
+      flex justify-center-safe
       bg-black/70 bg-opacity-90
       overflow-y-auto
       p-10
