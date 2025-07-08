@@ -64,3 +64,8 @@ Poin Penilaian
 - [ ] Paket
 - [ ] Pembayaran
 - [ ] Tunggu Pembayaran
+
+
+# Git
+git reset HEAD --hard  
+git clean -fd

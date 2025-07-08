@@ -1,13 +1,14 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { usePopupDetailStore } from "../../stores/use-popup-detail";
 import PopupHero from "../molecules/popup-hero";
 import PopupContent from "../molecules/popup-content";
 import PosterGalleries from "./poster-galleries";
 import {
-  recommendationGalleriesData,
+  // recommendation,
   seriesEpisodeGalleriesData,
 } from "../../utils/data/popup-page-data";
 import ThumbnailGallery from "./thumbnail-gallery";
+import axios from "axios";
 
 const PopupDetailCard = ({
   heroPaddingClass,
@@ -17,15 +18,27 @@ const PopupDetailCard = ({
 }) => {
   const popupRef = useRef(null);
   const { movieData, close: closeHandler } = usePopupDetailStore();
+  const [recommendation, setRecommendation] = useState();
 
   const episodeGalleriesData = seriesEpisodeGalleriesData(movieData.id);
 
   useEffect(() => {
+    const fetchGalleries = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/galleries/recommendation');
+        setRecommendation(response.data);
+      } catch (e) {
+        console.error('Error fetching galleries: ', e);
+      }
+    }
+
     const handleClickOutsideDetail = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         closeHandler();
       }
     };
+
+    fetchGalleries();
 
     document.addEventListener("mousedown", handleClickOutsideDetail);
     return () =>
@@ -74,7 +87,7 @@ const PopupDetailCard = ({
             />
           ) : (
             <PosterGalleries
-              galleries={recommendationGalleriesData}
+              galleries={recommendation}
               paddingClass={paddingClass}
               idToggleHandler={idToggleHandler}
               isInMyListHandler={isInMyListHandler}

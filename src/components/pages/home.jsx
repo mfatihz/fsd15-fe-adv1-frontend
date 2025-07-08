@@ -1,22 +1,35 @@
 import MainPageTemplate from "../templates/main-page-template"
-import { movieHero, movieGalleries } from "../../utils/data/home-page-data"
+// import { movieHero } from "../../utils/data/home-page-data"
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Home() {
-  /*
-    Note: pada tahap ini data masih statis, bisa langsung di export dari utils tanpa perlu useState dan useEffect  
-    const [ hero, setHero ] = useState([]);
-    const [ galleries, setGalleries ] = useState([]);
-  */
-  const hero = movieHero
-  const galleries = movieGalleries
+  const [hero, setHero] = useState([]);
+  const [galleries, setGalleries] = useState([]);
 
-  /* 
   useEffect(() => {
-    setHero(movieHero);
-    setGalleries(movieGalleries);
-  }, [movieHero, movieGalleries]);
-   */
+    const fetchHero = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/hero/home');
+        setHero(response.data);
+      } catch (e) {
+        console.error('Error fetching hero: ', e)
+      }
+    };
 
+    const fetchGalleries = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/galleries/home');
+        setGalleries(response.data);
+      } catch (e) {
+        console.error('Error fetching galleries: ', e)
+      }
+    };
+
+    fetchHero();
+    fetchGalleries();
+  }, []);
+console.log(hero)
   return (
     <MainPageTemplate
       hero={hero}
