@@ -2,7 +2,7 @@ import PosterDefaultCard from '../molecules/poster-default-card'
 import PosterHoverCard from '../molecules/poster-hover-card'
 import { useState, useRef } from 'react'
 
-function Poster({
+function PosterCard({
   movie,
   galleryType,
   //isMobile=false,
@@ -66,4 +66,4 @@ function Poster({
   )
 }
 
-export default Poster
+export default PosterCard

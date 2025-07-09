@@ -13,22 +13,23 @@ function PosterHoverCard({ movie, galleryType, onClick, isInMyListHandler }) {
     flex flex-col bg-[#0f0f1a] 
     overflow-hidden
     shadow-xl`;
-  
-    const widthClass =
+
+  const widthClass =
     galleryType === "recommendation"
       ? "w-[184px] sm:w-[260px] md:w-[306px]"
       : galleryType === "myList"
         ? "w-[221px] sm:w-[313px] md:w-[367px]"
         : "w-[245px] sm:w-[347px] md:w-[408px]"
+        
   const heightClass =
     galleryType === "recommendation"
       ? "h-[207px] sm:h-[293px] md:h-[345px]"
       : galleryType === "myList"
-      ? "h-[249px] sm:h-[353px] md:h-[415px]"
-      : "h-[276px] sm:h-[391px] md:h-[460px]";
-  
+        ? "h-[249px] sm:h-[353px] md:h-[415px]"
+        : "h-[276px] sm:h-[391px] md:h-[460px]";
+
   return (
-    <div 
+    <div
       className={clsx(
         baseStyle,
         widthClass,
@@ -54,13 +55,13 @@ function PosterHoverCard({ movie, galleryType, onClick, isInMyListHandler }) {
           />
         </div>
         <div className='flex gap-3 sm:gap-4 text-xs sm:text-sm content-center items-center'>
-          <PosterContentRating>{ movie.contentRating }</PosterContentRating>
-          { movie.type == "series" ?
-            (movie.episodes && <PosterChip content={movie.episodes} suffix='episodes'/>) :
+          <PosterContentRating>{movie.contentRating}</PosterContentRating>
+          {movie.type == "series" ?
+            (movie.episodes && <PosterChip content={movie.episodes} suffix='episodes' />) :
             (movie.duration && <PosterChip content={movie.duration} suffix="duration" />)
           }
         </div>
-        <PosterText>{ movie.genres.join(" · ") }</PosterText>
+        <PosterText>{movie.genres.join(" · ")}</PosterText>
       </div>
     </div>
   )

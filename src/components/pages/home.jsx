@@ -1,5 +1,4 @@
 import MainPageTemplate from "../templates/main-page-template"
-// import { movieHero } from "../../utils/data/home-page-data"
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -29,7 +28,7 @@ function Home() {
     fetchHero();
     fetchGalleries();
   }, []);
-console.log(hero)
+  
   return (
     <MainPageTemplate
       hero={hero}

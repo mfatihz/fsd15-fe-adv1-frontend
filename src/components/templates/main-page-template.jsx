@@ -73,9 +73,9 @@ function MainPageTemplate({ hero, galleries }) {
                     <PopupDetailCard
                         heroPaddingClass="p-4 sm:p-8 md:p-16"
                         paddingClass="
-                        px-6 sm:px-8 md:px-16
-                        my-2 sm:my-8
-                    "
+                            px-6 sm:px-8 md:px-16
+                            my-2 sm:my-8
+                        "
                         idToggleHandler={idToggleHandler}
                         isInMyListHandler={isInMyListHandler}
                     />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Poster from "./poster";
+import PosterCard from "./poster-card";
 import NoContent from "../atoms/no-content";
 import clsx from "clsx";
 
@@ -59,7 +59,7 @@ const WallPosters = ({
               className="inline-block flex-shrink-0"
               ref={index === 0 ? itemRef : null}
             >
-              <Poster
+              <PosterCard
                 movie={movie}
                 galleryType={galleryType}
                 //isMobile={isMobile}

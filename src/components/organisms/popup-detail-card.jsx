@@ -3,10 +3,6 @@ import { usePopupDetailStore } from "../../stores/use-popup-detail";
 import PopupHero from "../molecules/popup-hero";
 import PopupContent from "../molecules/popup-content";
 import PosterGalleries from "./poster-galleries";
-import {
-  // recommendation,
-  seriesEpisodeGalleriesData,
-} from "../../utils/data/popup-page-data";
 import ThumbnailGallery from "./thumbnail-gallery";
 import axios from "axios";
 
@@ -18,17 +14,27 @@ const PopupDetailCard = ({
 }) => {
   const popupRef = useRef(null);
   const { movieData, close: closeHandler } = usePopupDetailStore();
-  const [recommendation, setRecommendation] = useState();
-
-  const episodeGalleriesData = seriesEpisodeGalleriesData(movieData.id);
+  const [recommendationGalleries, setRecommendationGalleries] = useState();
+  const [episodesGallery, setEpisodesGallery] = useState();
 
   useEffect(() => {
     const fetchGalleries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/galleries/recommendation');
-        setRecommendation(response.data);
+        const response = await axios.get(
+          "http://localhost:5000/api/galleries/recommendation"
+        );
+        setRecommendationGalleries(response.data);
       } catch (e) {
-        console.error('Error fetching galleries: ', e);
+        console.error("Error fetching galleries: ", e);
+      }
+    };
+
+    const fetchSeries = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/series/${movieData.id}/episodes`);
+        setEpisodesGallery(response.data);
+      } catch (e) {
+        console.error("Error fetching episodes: ", e);
       }
     }
 
@@ -38,12 +44,12 @@ const PopupDetailCard = ({
       }
     };
 
-    fetchGalleries();
+    movieData.type === "series" ? fetchSeries() : fetchGalleries();
 
     document.addEventListener("mousedown", handleClickOutsideDetail);
     return () =>
       document.removeEventListener("mousedown", handleClickOutsideDetail);
-  }, [closeHandler]);
+  }, [closeHandler, movieData.type, movieData.id]);
 
   return (
     // translucent dark-bg
@@ -81,13 +87,13 @@ const PopupDetailCard = ({
 
           {movieData.type === "series" ? (
             <ThumbnailGallery
-              title={episodeGalleriesData.title}
-              episodes={episodeGalleriesData.movies}
+              title={episodesGallery?.title}
+              episodes={episodesGallery?.movies}
               paddingClass={paddingClass}
             />
           ) : (
             <PosterGalleries
-              galleries={recommendation}
+              galleries={recommendationGalleries}
               paddingClass={paddingClass}
               idToggleHandler={idToggleHandler}
               isInMyListHandler={isInMyListHandler}
