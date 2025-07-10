@@ -1,18 +1,5 @@
 # CHILL App
 
-Bacaan:/  
-https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
-How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend
-https://www.youtube.com/watch?v=mKmxc8TcWQ8/  
-https://github.com/internetdrew/vite-express-vercel/  
-https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
-https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
-https://dev.to/rdegges/please-stop-using-local-storage-1i04
-
-
-# Git
-git reset HEAD --hard  
-git clean -fd
 
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
@@ -103,3 +90,22 @@ Poin Penilaian
 - [ ] Paket
 - [ ] Pembayaran
 - [ ] Tunggu Pembayaran
+
+# Bacaan
+https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
+How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend
+https://www.youtube.com/watch?v=mKmxc8TcWQ8/  
+https://github.com/internetdrew/vite-express-vercel/  
+https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
+https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
+https://dev.to/rdegges/please-stop-using-local-storage-1i04
+https://www.moesif.com/blog/technical/api-design/REST-API-Design-Best-Practices-for-Parameters-and-Query-String-Usage/
+
+!!!!!:  
+https://medium.com/@pratikpatil2727/unlocking-the-power-of-browser-api-local-storage-in-node-js-without-third-party-modules-9584684baf29  
+https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/  
+https://htmx.org/essays/how-did-rest-come-to-mean-the-opposite-of-rest/  
+
+# Git
+git reset HEAD --hard  
+git clean -fd
