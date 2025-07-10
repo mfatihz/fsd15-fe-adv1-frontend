@@ -93,8 +93,7 @@ Poin Penilaian
 
 # Bacaan
 https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
-How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend
-https://www.youtube.com/watch?v=mKmxc8TcWQ8/  
+[How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend](https://www.youtube.com/watch?v=mKmxc8TcWQ8/)  
 https://github.com/internetdrew/vite-express-vercel/  
 https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
 https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
