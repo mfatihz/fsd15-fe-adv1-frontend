@@ -7,6 +7,12 @@ https://www.youtube.com/watch?v=mKmxc8TcWQ8/
 https://github.com/internetdrew/vite-express-vercel/  
 https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
 https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
+https://dev.to/rdegges/please-stop-using-local-storage-1i04
+
+
+# Git
+git reset HEAD --hard  
+git clean -fd
 
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
@@ -14,10 +20,10 @@ Stack: Vite + React + React Router + tailwind\
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
-- [x] customHook.\
-    > done: src/hooks/useLocalStorage
+- [x] customHook.
+    > Done: src/hooks/useLocalStorage
 - [x] Fetching (Axios) untuk consume API.
-    > done: fetching data gallery dan list
+    > Done: fetching data gallery dan list
     
     Contoh get:
     ```
@@ -54,31 +60,32 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     }
   };
     ```
-- [x] State management dengan seperti Redux, UseContext, dan Zustand.\
-    > done: use Zustand in src/stores/usePopupDetailStore\
+- [x] State management dengan seperti Redux, UseContext, dan Zustand.
+    > Done: use Zustand in src/stores/usePopupDetailStore
         implementasi:
         - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
         - pada Poster: untuk menampilkan PopupDetail component
-- [x] mengimplementasikan library pada React\
-    > done: Sooner (Toaster, toast) saat menambah atau mengurangi myList
+- [x] mengimplementasikan library pada React
+    > Done: Sooner (Toaster, toast) saat menambah atau mengurangi myList
 
 Instructions
 1. Siapkan Fake API atau Mock Data .
 - [ ] Buat fake API menggunakan [Mock API](https://mockapi.io/) atau [Firebase](https://firebase.google.com/).
 - [ ] Buat fungsi GET, UPDATE, ADD, dan DELETE data.
+  > Done: Create node + express backend
 2. Implementasikan API Call
 - [x] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
 - [x] Buat folder "services/api".
 - [ ] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
-- [ ] Gunakan url API: simpan url api dasar dalam file .env
+- [x] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
 - [ ] Boleh mengimplementasikan interceptor
-- [ ] Simpan basic url pada .env
-- [ ] Bisa menggunakan custom hooks untuk memisahkan API dari komponen React
+- [x] Simpan basic url pada .env
+- [x] Bisa menggunakan custom hooks untuk memisahkan API dari komponen React
 
 Poin Penilaian
-- [ ] Implementasi API yang dinamis untuk GET, UPDATE, ADD, dan DELETE
+- [x] Implementasi API yang dinamis untuk GET, UPDATE, ADD, dan DELETE
 
 
 # Fitur App
@@ -96,8 +103,3 @@ Poin Penilaian
 - [ ] Paket
 - [ ] Pembayaran
 - [ ] Tunggu Pembayaran
-
-
-# Git
-git reset HEAD --hard  
-git clean -fd
