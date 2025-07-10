@@ -10,7 +10,7 @@ const WallPosters = ({
   scrollContainerRef,
   itemRef,
   idToggleHandler,
-  isInMyListHandler,
+  checkId,
   isWrapped = false,
   alt = "Isi galeri belum tersedia",
 }) => {
@@ -65,7 +65,7 @@ const WallPosters = ({
                 //isMobile={isMobile}
                 xBoundary={xBoundary}
                 onClick={idToggleHandler}
-                isInMyListHandler={isInMyListHandler}
+                checkId={checkId}
               />
             </li>
           ))}

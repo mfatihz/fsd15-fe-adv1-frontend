@@ -17,9 +17,7 @@ import useLocalStorage from "../../hooks/use-local-storage";
 function MainPageTemplate({ hero, galleries }) {
     const header = { navData: navData, menuData: menuData };
     const footer = { genreData: genreData, helpData: helpData };
-    const { toggleId: idToggleHandler, hasId: isInMyListHandler } =
-        useLocalStorage("my-lists", new Set());
-
+    const { toggleId: idToggleHandler, checkId } = useLocalStorage("my-lists", new Set());
     const topRef = useRef(null);
 
     const scrollToTop = () => {
@@ -47,7 +45,7 @@ function MainPageTemplate({ hero, galleries }) {
 
     return (
         <div className="min-h-screen w-dvw flex flex-col mx-auto">
-            <Toaster position="top-center" />
+            <Toaster position="bottom-center" />
 
             <Header
                 navData={header.navData}
@@ -77,7 +75,7 @@ function MainPageTemplate({ hero, galleries }) {
                             my-2 sm:my-8
                         "
                         idToggleHandler={idToggleHandler}
-                        isInMyListHandler={isInMyListHandler}
+                        checkId={checkId}
                     />
                 )}
 
@@ -88,7 +86,7 @@ function MainPageTemplate({ hero, galleries }) {
                         py-4 sm:py-10 md:py-20
                     "
                     idToggleHandler={idToggleHandler}
-                    isInMyListHandler={isInMyListHandler}
+                    checkId={checkId}
                 />
             </main>
 

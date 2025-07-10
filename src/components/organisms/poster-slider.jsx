@@ -5,7 +5,7 @@ import { getDeviceType } from '../../utils/get-device-type';
 import WallPosters from './wall-posters';
 import clsx from 'clsx'
 
-const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler, isWrapped }) => {
+const PosterSlider = ({ movies, galleryType, idToggleHandler, checkId, isWrapped }) => {
   const posterContainer = useRef(null)
   const scrollContainerRef = useRef(null);
   const itemRef = useRef(null);
@@ -148,7 +148,7 @@ const PosterSlider = ({ movies, galleryType, idToggleHandler, isInMyListHandler,
         scrollContainerRef={scrollContainerRef}
         itemRef={itemRef}
         idToggleHandler={idToggleHandler}
-        isInMyListHandler={isInMyListHandler}
+        checkId={checkId}
       />
 
       {showScrollButtons &&

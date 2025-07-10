@@ -10,18 +10,20 @@ const PopupDetailCard = ({
   heroPaddingClass,
   paddingClass,
   idToggleHandler,
-  isInMyListHandler,
+  checkId,
 }) => {
   const popupRef = useRef(null);
   const { movieData, close: closeHandler } = usePopupDetailStore();
   const [recommendationGalleries, setRecommendationGalleries] = useState();
   const [episodesGallery, setEpisodesGallery] = useState();
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchGalleries = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/galleries/recommendation"
+          `${API_URL}/galleries/recommendation`
         );
         setRecommendationGalleries(response.data);
       } catch (e) {
@@ -31,7 +33,7 @@ const PopupDetailCard = ({
 
     const fetchSeries = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/series/${movieData.id}/episodes`);
+        const response = await axios.get(`${API_URL}/series/${movieData.id}/episodes`);
         setEpisodesGallery(response.data);
       } catch (e) {
         console.error("Error fetching episodes: ", e);
@@ -49,7 +51,7 @@ const PopupDetailCard = ({
     document.addEventListener("mousedown", handleClickOutsideDetail);
     return () =>
       document.removeEventListener("mousedown", handleClickOutsideDetail);
-  }, [closeHandler, movieData.type, movieData.id]);
+  }, [closeHandler, movieData.type, movieData.id, API_URL]);
 
   return (
     // translucent dark-bg
@@ -96,7 +98,7 @@ const PopupDetailCard = ({
               galleries={recommendationGalleries}
               paddingClass={paddingClass}
               idToggleHandler={idToggleHandler}
-              isInMyListHandler={isInMyListHandler}
+              checkId={checkId}
             />
           )}
         </div>

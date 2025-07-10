@@ -5,10 +5,9 @@ import ChevronDownButton from '../atoms/chevron-down-button'
 import PosterContentRating from '../atoms/poster-content-rating'
 import PosterChip from '../atoms/poster-chip'
 import PosterText from '../atoms/poster-text'
-import { toast } from 'sonner'
 import clsx from "clsx";
 
-function PosterHoverCard({ movie, galleryType, onClick, isInMyListHandler }) {
+function PosterHoverCard({ movie, galleryType, onClick, checkId }) {
   const baseStyle = `rounded-lg sm:rounded-xl md:rounded-2xl
     flex flex-col bg-[#0f0f1a] 
     overflow-hidden
@@ -41,13 +40,10 @@ function PosterHoverCard({ movie, galleryType, onClick, isInMyListHandler }) {
         <div className='flex gap-3 sm:gap-4'>
           <PlayButton />
           <CheckButton
-            isChecked={isInMyListHandler(movie.id)}
-            onClick={() => {
-              onClick(movie.id);
-              // NOTE: isInMyListHandler(movie.id) di sini membaca state lama
-              toast(`${movie.title} ${isInMyListHandler(movie.id) ? 'dihapus dari' : 'ditambahkan ke'} Daftar Saya`);
-            }}
+            checkId={checkId}
+            onClick={onClick}
             movieId={movie.id}
+            movieTitle={movie.title}
           />
           <ChevronDownButton
             className="ml-auto"

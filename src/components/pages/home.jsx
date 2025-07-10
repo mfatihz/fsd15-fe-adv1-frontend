@@ -6,10 +6,12 @@ function Home() {
   const [hero, setHero] = useState([]);
   const [galleries, setGalleries] = useState([]);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/hero/home');
+        const response = await axios.get(`${API_URL}/hero/home`);
         setHero(response.data);
       } catch (e) {
         console.error('Error fetching hero: ', e)
@@ -18,7 +20,7 @@ function Home() {
 
     const fetchGalleries = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/galleries/home');
+        const response = await axios.get(`${API_URL}/galleries/home`);
         setGalleries(response.data);
       } catch (e) {
         console.error('Error fetching galleries: ', e)

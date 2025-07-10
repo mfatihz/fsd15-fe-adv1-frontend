@@ -6,7 +6,7 @@ function PosterGalleries({
     galleries,
     paddingClass,
     idToggleHandler,
-    isInMyListHandler,
+    checkId,
 }) {
     const baseStyle = `
         flex-1
@@ -26,7 +26,7 @@ function PosterGalleries({
                                 movies={gallery.movies}
                                 galleryType={gallery.gallery_type}
                                 idToggleHandler={idToggleHandler}
-                                isInMyListHandler={isInMyListHandler}
+                                checkId={checkId}
                                 isWrapped={gallery.isWrapped}
                             />
                         </div>

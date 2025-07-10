@@ -1,95 +1,76 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function useLocalStorage(key, initialValue = new Set()) {
-  // Get initial value from localStorage
-  const [storedValue, setStoredValue] = useState(() => {
-    try {
-      const item = localStorage.getItem(key);
-      return item ? new Set(JSON.parse(item)) : initialValue;
-    } catch (error) {
-      console.error(error);
-      return initialValue;
-    }
-  });
+  const [userId] = useState('chill_user'); // TODO: ganti dengan actual ID
+  const [storedValue, setStoredValue] = useState(new Set(initialValue));
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Toggle item in Set
-  const toggleId = (id) => {
-    const newSet = new Set(storedValue);
-    if (newSet.has(id)) {
-      newSet.delete(id);
-    } else {
-      newSet.add(id);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get(`${API_URL}/mylist/${userId}`);
+        const newSet = new Set(response.data.ids);
+        setStoredValue(newSet);
+        localStorage.setItem(key, JSON.stringify([...newSet]));
+      } catch (error) {
+        console.error('Failed to fetch from API:', error);
+        try {
+          const item = localStorage.getItem(key);
+          if (item) {
+            setStoredValue(new Set(JSON.parse(item)));
+          }
+        } catch (localError) {
+          console.error('Failed to read from localStorage:', localError);
+        }
+      } finally {
+        setIsLoading(false);
+      }
     }
-    
-    // Update both state and localStorage
-    setStoredValue(newSet);
-    localStorage.setItem(key, JSON.stringify([...newSet]));
+
+    fetchData();
+  }, [userId, key]);
+
+  const toggleId = async (movieId) => {
+    try {
+      const response = await axios.post(`${API_URL}/mylist/${userId}/toggle`, { movieId });
+      const newSet = new Set(response.data.ids);
+      setStoredValue(newSet);
+      localStorage.setItem(key, JSON.stringify([...newSet]));
+      return newSet.has(movieId);
+    } catch (error) {
+      console.error('API failed, using localStorage only:', error);
+      const newSet = new Set(storedValue);
+      if (newSet.has(movieId)) {
+        newSet.delete(movieId);
+      } else {
+        newSet.add(movieId);
+      }
+      setStoredValue(newSet);
+      localStorage.setItem(key, JSON.stringify([...newSet]));
+      return newSet.has(movieId);
+    }
   };
 
-  // Check if id exists
-  // fungsional dibungkus di sini agar jika ada perubahan struktur data tidak akan berpengaruh ke implementasi
-  const hasId = (id) => storedValue.has(id);
+  const checkId = async (movieId) => {
+    if (!isLoading) {
+      return storedValue.has(movieId);
+    }
+    try {
+      const response = await axios.get(`${API_URL}/mylist/${userId}/has/${movieId}`);
+      return response.data.has;
+    } catch (error) {
+      console.error('API failed, using localStorage only:', error);
+      return storedValue.has(movieId);
+    }
+  };
 
   return {
     ids: storedValue,
     toggleId,
-    hasId
+    checkId,
+    isLoading
   };
 }
-
-
-
-// import { useState } from 'react';
-// import { addToMyList, getMyList, removeFromMyList } from '../services/myList-service';
-
-// export default function useLocalStorage(userId) {
-//   // const key = 'chillMyList';
-//   const initialValue = {
-//             user_id: userId,
-//             movie: [],
-            
-//         };
-        
-//   // Get initial value from localStorage
-//   const [storedValue, setStoredValue] = useState(() => {
-//     try {
-//       return getMyList(userId);
-//     } catch (error) {
-//       console.error(error);
-//       return initialValue;
-//     }
-//   });
-
-//   // Toggle item in Set
-//   const toggleId = (userId, movieId) => {
-//     const current = storedValue.movies.find(m => m === movieId);
-//     if (current) {
-//       try {
-//         setStoredValue(removeFromMyList(userId, movieId));
-//       } catch (e) {
-//         console.error(e)
-//       }
-//     } else {
-//       try {
-//         setStoredValue(addToMyList(userId, movieId));
-//       } catch (e) {
-//         console.error(e)
-//       }
-      
-//     }
-    
-//     // Update both state and localStorage
-//     // setStoredValue(getMyList(userId));
-//     // localStorage.setItem(key, JSON.stringify([...newSet]));
-//   };
-
-//   // Check if id exists
-//   // fungsional dibungkus di sini agar jika ada perubahan struktur data tidak akan berpengaruh ke implementasi
-//   const hasId = (id) => storedValue.movies.find(id);
-
-//   return {
-//     ids: storedValue,
-//     toggleId,
-//     hasId
-//   };
-// }

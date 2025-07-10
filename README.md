@@ -11,24 +11,56 @@ https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-wi
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
 Stack: Vite + React + React Router + tailwind\
-Demo: [netlify](https://fsd15-fe-adv1.netlify.app/)
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
 - [x] customHook.\
-    done:
-    - useLocalStorage
-- [ ] Fetching (Axios) untuk consume API.
+    > done: src/hooks/useLocalStorage
+- [x] Fetching (Axios) untuk consume API.
+    > done: fetching data gallery dan list
+    
+    Contoh get:
+    ```
+    const fetchGalleries = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/galleries/movies`);
+        setGalleries(response.data);
+      } catch (e) {
+        console.error('Error fetching galleries: ', e)
+      }
+    };
+    ```
+
+    Contoh post:
+    ```
+    const toggleId = async (movieId) => {
+    try {
+      const response = await axios.post(`${API_URL}/mylist/${userId}/toggle`, { movieId });
+      const newSet = new Set(response.data.ids);
+      setStoredValue(newSet);
+      localStorage.setItem(key, JSON.stringify([...newSet]));
+      return newSet.has(movieId);
+    } catch (error) {
+      console.error('API failed, using localStorage only:', error);
+      const newSet = new Set(storedValue);
+      if (newSet.has(movieId)) {
+        newSet.delete(movieId);
+      } else {
+        newSet.add(movieId);
+      }
+      setStoredValue(newSet);
+      localStorage.setItem(key, JSON.stringify([...newSet]));
+      return newSet.has(movieId);
+    }
+  };
+    ```
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.\
-    done:
-    - Zustand: usePopupDetailStore (in folder: src\stores\\)\
+    > done: use Zustand in src/stores/usePopupDetailStore\
         implementasi:
         - pada HomeTemplate: untuk mengatur scroll pada browser dan tampil tidaknya PopupDetail component
         - pada Poster: untuk menampilkan PopupDetail component
 - [x] mengimplementasikan library pada React\
-    done:
-    - React Router: Link
-    - Sooner: Toaster, toast
+    > done: Sooner (Toaster, toast) saat menambah atau mengurangi myList
 
 Instructions
 1. Siapkan Fake API atau Mock Data .
