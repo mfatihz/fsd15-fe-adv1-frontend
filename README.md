@@ -19,7 +19,7 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
 - [x] Fetching (Axios) untuk consume API.
     > Done: fetching data gallery dan list
 
-    Contoh get:
+    Contoh:
     ```
     const fetchGalleries = async () => {
       try {
@@ -31,29 +31,18 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     };
     ```
 
-    Contoh post:
     ```
-    const toggleId = async (movieId) => {
-    try {
-      const response = await axios.post(`${API_URL}/mylist/${userId}/toggle`, { movieId });
-      const newSet = new Set(response.data.ids);
-      setStoredValue(newSet);
-      localStorage.setItem(key, JSON.stringify([...newSet]));
-      return newSet.has(movieId);
-    } catch (error) {
-      console.error('API failed, using localStorage only:', error);
-      const newSet = new Set(storedValue);
-      if (newSet.has(movieId)) {
-        newSet.delete(movieId);
-      } else {
-        newSet.add(movieId);
-      }
-      setStoredValue(newSet);
-      localStorage.setItem(key, JSON.stringify([...newSet]));
-      return newSet.has(movieId);
+    export const toggleMyList = async (userId, movieId) => {
+        try {
+            const response = await axios.put(`${API_URL}/mylist/${userId}/toggle`, { movieId });
+            return response?.data?.ids;
+        } catch (e) {
+            console.error('Error add to MyList:', e);
+            throw e;
+        }
     }
-  };
     ```
+    
 - [x] State management dengan seperti Redux, UseContext, dan Zustand.
     > Done: use Zustand in src/stores/usePopupDetailStore
         implementasi:
