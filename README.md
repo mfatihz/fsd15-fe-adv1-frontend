@@ -57,14 +57,14 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
 
 Instructions
 1. Siapkan Fake API atau Mock Data .
-- [ ] Buat fake API menggunakan [Mock API](https://mockapi.io/) atau [Firebase](https://firebase.google.com/).
-- [ ] Buat fungsi GET, UPDATE, ADD, dan DELETE data.
-    > Done: Create node + express backend
+    - [ ] Buat fake API menggunakan [Mock API](https://mockapi.io/) atau [Firebase](https://firebase.google.com/).
+    - [ ] Buat fungsi GET, UPDATE, ADD, dan DELETE data.
+        > Done: Create node + express backend
 2. Implementasikan API Call
-- [x] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
-- [x] Buat folder "services/api".
-- [x] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
-- [x] Gunakan url API: simpan url api dasar dalam file .env
+    - [x] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
+    - [x] Buat folder "services/api".
+    - [x] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
+    - [x] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
 - [ ] Boleh mengimplementasikan interceptor
