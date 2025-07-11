@@ -11,12 +11,10 @@ import {
     menuData,
     genreData,
     helpData,
-} from "../../utils/app/home-utils";
+} from "../../utils/app/home-ui-elements";
 import useLocalStorage from "../../hooks/use-local-storage";
 
 function MainPageTemplate({ hero, galleries }) {
-    const header = { navData: navData, menuData: menuData };
-    const footer = { genreData: genreData, helpData: helpData };
     const { toggleId: idToggleHandler, checkId } = useLocalStorage("my-lists", new Set());
     const topRef = useRef(null);
 
@@ -48,8 +46,8 @@ function MainPageTemplate({ hero, galleries }) {
             <Toaster position="bottom-center" />
 
             <Header
-                navData={header.navData}
-                menuData={header.menuData}
+                navData={navData}
+                menuData={menuData}
                 paddingClass="
                     px-6 sm:px-10 md:px-20
                     py-3 sm:py-4 md:py-6
@@ -91,8 +89,8 @@ function MainPageTemplate({ hero, galleries }) {
             </main>
 
             <Footer
-                genreData={footer.genreData}
-                helpData={footer.helpData}
+                genreData={genreData}
+                helpData={helpData}
                 paddingClass="
                     px-6 sm:px-10 md:px-20
                     py-10 md:py-20

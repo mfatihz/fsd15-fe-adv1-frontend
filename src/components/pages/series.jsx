@@ -1,6 +1,7 @@
 import MainPageTemplate from "../templates/main-page-template"
 import { useEffect, useState } from "react"
-import axios from "axios"
+import { getHero } from "../../services/api/hero-service";
+import { getGalleries } from "../../services/api/gallery-service";
 
 function Series() {
   const [hero, setHero] = useState([]);
@@ -11,7 +12,7 @@ function Series() {
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const response = await axios.get(`${API_URL}/hero/series`);
+        const response = await getHero('series');
         setHero(response.data);
       } catch (e) {
         console.error('Error fetching hero: ', e)
@@ -20,7 +21,7 @@ function Series() {
 
     const fetchGalleries = async () => {
       try {
-        const response = await axios.get(`${API_URL}/galleries/series`);
+        const response = await getGalleries('series');
         setGalleries(response.data);
       } catch (e) {
         console.error('Error fetching galleries: ', e)

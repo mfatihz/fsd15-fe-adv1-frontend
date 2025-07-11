@@ -1,16 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router";
 import InputWithLabel from "../molecules/input-with-label";
 import PasswordField from "../molecules/password-field";
 import FormLinks from "../molecules/form-links";
 import Button from "../atoms/auth-button";
 import GoogleButton from "../atoms/google-button";
+import { useAuth } from "../../hooks/auth";
 
 const LoginForm = () => {
     const [error, setError] = useState("");
-    const navigate = useNavigate();
+    const { onLogin } = useAuth();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
@@ -23,7 +23,8 @@ const LoginForm = () => {
 
         // Simulasi login berhasil
         if (username === "admin" && password === "admin") {
-            navigate("/"); // Navigasi ke Home jika berhasil
+            // navigate("/"); // Navigasi ke Home jika berhasil
+            await onLogin();
         } else {
             setError("Username atau password salah\n\nHint:\nUsername = admin\nKata Sandi = admin");
         }
@@ -35,6 +36,7 @@ const LoginForm = () => {
                 <form 
                     id="login-form" 
                     onSubmit={handleSubmit}
+                    //onSubmit={onLogin}
                     className="flex flex-col gap-5 w-full"
                 >
                     {error && alert(error)}
@@ -45,7 +47,7 @@ const LoginForm = () => {
             </div>
 
             <div className="flex flex-col gap-3">
-                <Button type="submit" form="login-form" variant="primary">Masuk</Button>
+                <Button type="submit" form="login-form" variant="primary" >Masuk</Button>
                 <p className="text-center text-gray-400 text-sm max-sm:text-xs">Atau</p>
                 <GoogleButton />
             </div>

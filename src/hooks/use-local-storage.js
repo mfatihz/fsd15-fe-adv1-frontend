@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-const API_URL = import.meta.env.VITE_API_URL;
+import { checkMovieId, getMyList, toggleMyList } from '../services/api/myList-service';
 
 export default function useLocalStorage(key, initialValue = new Set()) {
   const [userId] = useState('chill_user'); // TODO: ganti dengan actual ID
@@ -11,8 +9,8 @@ export default function useLocalStorage(key, initialValue = new Set()) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get(`${API_URL}/mylist/${userId}`);
-        const newSet = new Set(response.data.ids);
+        const response = await getMyList(userId);
+        const newSet = new Set(response);
         setStoredValue(newSet);
         localStorage.setItem(key, JSON.stringify([...newSet]));
       } catch (error) {
@@ -35,8 +33,8 @@ export default function useLocalStorage(key, initialValue = new Set()) {
 
   const toggleId = async (movieId) => {
     try {
-      const response = await axios.post(`${API_URL}/mylist/${userId}/toggle`, { movieId });
-      const newSet = new Set(response.data.ids);
+      const response = await toggleMyList(userId, movieId);
+      const newSet = new Set(response);
       setStoredValue(newSet);
       localStorage.setItem(key, JSON.stringify([...newSet]));
       return newSet.has(movieId);
@@ -59,8 +57,7 @@ export default function useLocalStorage(key, initialValue = new Set()) {
       return storedValue.has(movieId);
     }
     try {
-      const response = await axios.get(`${API_URL}/mylist/${userId}/has/${movieId}`);
-      return response.data.has;
+      return await checkMovieId(userId, movieId);
     } catch (error) {
       console.error('API failed, using localStorage only:', error);
       return storedValue.has(movieId);

@@ -92,6 +92,8 @@ Poin Penilaian
 - [ ] Tunggu Pembayaran
 
 # Bacaan
+https://www.robinwieruch.de/react-router-authentication/  
+
 https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
 [How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend](https://www.youtube.com/watch?v=mKmxc8TcWQ8/)  
 https://github.com/internetdrew/vite-express-vercel/  

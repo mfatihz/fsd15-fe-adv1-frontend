@@ -1,6 +1,6 @@
 import NavigationalLink from '../atoms/navigational-link'
 
-function NavigationalLinks({ links }) {
+function Navigation({ links }) {
     return (
         <nav className="flex items-center list-none m-0 p-0 gap-3 sm:gap-8">
             {
@@ -12,4 +12,4 @@ function NavigationalLinks({ links }) {
     )
 }
 
-export default NavigationalLinks
+export default Navigation

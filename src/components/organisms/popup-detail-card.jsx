@@ -4,7 +4,8 @@ import PopupHero from "../molecules/popup-hero";
 import PopupContent from "../molecules/popup-content";
 import PosterGalleries from "./poster-galleries";
 import ThumbnailGallery from "./thumbnail-gallery";
-import axios from "axios";
+import { getEpisodes } from "../../services/api/episodes-service";
+import { getGalleries } from "../../services/api/gallery-service";
 
 const PopupDetailCard = ({
   heroPaddingClass,
@@ -17,14 +18,10 @@ const PopupDetailCard = ({
   const [recommendationGalleries, setRecommendationGalleries] = useState();
   const [episodesGallery, setEpisodesGallery] = useState();
 
-  const API_URL = import.meta.env.VITE_API_URL;
-
   useEffect(() => {
-    const fetchGalleries = async () => {
+    const fetchRecommendation = async () => {
       try {
-        const response = await axios.get(
-          `${API_URL}/galleries/recommendation`
-        );
+        const response = await getGalleries('recommendation');
         setRecommendationGalleries(response.data);
       } catch (e) {
         console.error("Error fetching galleries: ", e);
@@ -33,7 +30,7 @@ const PopupDetailCard = ({
 
     const fetchSeries = async () => {
       try {
-        const response = await axios.get(`${API_URL}/series/${movieData.id}/episodes`);
+        const response = await getEpisodes(movieData.id);
         setEpisodesGallery(response.data);
       } catch (e) {
         console.error("Error fetching episodes: ", e);
@@ -46,12 +43,12 @@ const PopupDetailCard = ({
       }
     };
 
-    movieData.type === "series" ? fetchSeries() : fetchGalleries();
+    movieData.type === "series" ? fetchSeries() : fetchRecommendation();
 
     document.addEventListener("mousedown", handleClickOutsideDetail);
     return () =>
       document.removeEventListener("mousedown", handleClickOutsideDetail);
-  }, [closeHandler, movieData.type, movieData.id, API_URL]);
+  }, [closeHandler, movieData.type, movieData.id]);
 
   return (
     // translucent dark-bg
