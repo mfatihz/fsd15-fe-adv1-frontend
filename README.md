@@ -1,10 +1,5 @@
 # CHILL App Adv 1
 
-
-CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
-
-Stack: axios + zustand + (Vite + React + React Router + tailwind)  
-
 Aplikasi ini dilengkapi dengan [backend](https://github.com/mfatihz/fsd15-fe-adv1-backend)
 
 setting .env:  
@@ -12,6 +7,10 @@ setting .env:
 
 untuk menjalankan aplikasi:  
     npm run dev
+
+Paradigma desain: [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
+
+Stack: (Vite + React + React Router + tailwind) + axios + zustand  
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
