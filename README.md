@@ -3,15 +3,15 @@
 
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
 
-Stack: Vite + React + React Router + tailwind\
+Stack: axios + zustand + (Vite + React + React Router + tailwind)
 
 ## Task Lists
 Mengintegrasikan data static dengan penggunaan API dan mendalami framework React.
 - [x] customHook.
-    > Done: src/hooks/useLocalStorage
+    > Done: src/hooks/useLocalStorage, src/hooks/auth
 - [x] Fetching (Axios) untuk consume API.
     > Done: fetching data gallery dan list
-    
+
     Contoh get:
     ```
     const fetchGalleries = async () => {
@@ -59,11 +59,11 @@ Instructions
 1. Siapkan Fake API atau Mock Data .
 - [ ] Buat fake API menggunakan [Mock API](https://mockapi.io/) atau [Firebase](https://firebase.google.com/).
 - [ ] Buat fungsi GET, UPDATE, ADD, dan DELETE data.
-  > Done: Create node + express backend
+    > Done: Create node + express backend
 2. Implementasikan API Call
 - [x] Instal library [Axios](https://axios-http.com/docs/intro) atau gunakan Fetch API bawaan Javascript
 - [x] Buat folder "services/api".
-- [ ] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
+- [x] Kembangkan fungsi JavaScript untuk GET, UPDATE, ADD, dan DELETE data.
 - [x] Gunakan url API: simpan url api dasar dalam file .env
 
 Catatan:
@@ -76,10 +76,12 @@ Poin Penilaian
 
 
 # Fitur App
-- [x] Masuk: add auth
+- [x] Masuk
+      > implement login (user: admin password: admin) with fake auth
 - [x] Daftar
 - [x] Beranda
 - [x] Daftar Saya
+      > ProtectedRoute, user harus login
 - [ ] Series: add filter
 - [ ] Film: add filter
 - [x] Popup Series
@@ -90,23 +92,3 @@ Poin Penilaian
 - [ ] Paket
 - [ ] Pembayaran
 - [ ] Tunggu Pembayaran
-
-# Bacaan
-https://www.robinwieruch.de/react-router-authentication/  
-
-https://curiousmind.hashnode.dev/deploy-vercel-serverless-function/  
-[How to Create a Express/Node + React Project with Vite | Node Backend + React Frontend](https://www.youtube.com/watch?v=mKmxc8TcWQ8/)  
-https://github.com/internetdrew/vite-express-vercel/  
-https://v0.dev/chat/react-with-vite-setup-1y3PeQDSTJb/  
-https://freedium.cfd/https://javascript.plainenglish.io/test-express-crud-api-with-jest-1780d753a618/  
-https://dev.to/rdegges/please-stop-using-local-storage-1i04
-https://www.moesif.com/blog/technical/api-design/REST-API-Design-Best-Practices-for-Parameters-and-Query-String-Usage/
-
-!!!!!:  
-https://medium.com/@pratikpatil2727/unlocking-the-power-of-browser-api-local-storage-in-node-js-without-third-party-modules-9584684baf29  
-https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/  
-https://htmx.org/essays/how-did-rest-come-to-mean-the-opposite-of-rest/  
-
-# Git
-git reset HEAD --hard  
-git clean -fd
