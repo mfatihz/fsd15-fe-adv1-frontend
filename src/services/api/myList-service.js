@@ -2,15 +2,6 @@ import axios from "axios";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-// export const getMyList = async (userId) => {
-//     try {
-//         const response = await axios.get(`${API_URL}/mylist/${userId}`);
-//         return response.data;
-//     } catch (e) {
-//         console.error('Error getting MyList:', e);
-//         //throw e;
-//     }
-// }
 export const getMyList = async (userId) => {
     try {
         const response = await axios.get(`${API_URL}/mylist/${userId}`);
@@ -27,7 +18,7 @@ export const toggleMyList = async (userId, movieId) => {
         return response?.data?.ids;
     } catch (e) {
         console.error('Error add to MyList:', e);
-        //throw e;
+        throw e;
     }
 }
 
