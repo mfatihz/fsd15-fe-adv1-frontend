@@ -1,3 +1,0 @@
-Install
-```npm install axios```
-
