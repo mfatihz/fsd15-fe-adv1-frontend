@@ -5,7 +5,7 @@ CHILL app dibangun menggunakan React component dengan paradigma [atomic design](
 
 Stack: axios + zustand + (Vite + React + React Router + tailwind)  
 
-Aplikasi ini dlengkapi dengan [backend](https://github.com/mfatihz/fsd15-fe-adv1-backend)
+Aplikasi ini dilengkapi dengan [backend](https://github.com/mfatihz/fsd15-fe-adv1-backend)
 
 setting .env:  
     VITE_API_URL=http://localhost:5000/api
