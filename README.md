@@ -1,4 +1,4 @@
-# CHILL App
+# CHILL App Adv 1
 
 
 CHILL app dibangun menggunakan React component dengan paradigma [atomic design](https://github.com/mfatihz/fsd15-intermediate-1/blob/main/README.md)  
