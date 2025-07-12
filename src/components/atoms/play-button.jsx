@@ -11,7 +11,7 @@ function PlayButton({onClick}) {
         rounded-full cursor-pointer
         box-border
         transition-all duration-200
-        hover:scale-105 hover:shadow-md
+        hover:scale-105 hover:shadow-md focus:outline-none
       `}
       onClick={ onClick }
       

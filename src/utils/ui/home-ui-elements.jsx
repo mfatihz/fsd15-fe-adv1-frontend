@@ -11,7 +11,7 @@ export const navData = [
 export const menuData = [
     {id:1, icon:<UserIcon />, text: "Profil Saya", to:"/profile"},
     {id:2, icon:<StarIcon />, text: "Ubah Premium", to:"/premium"},
-    {id:3, icon:<ExitIcon />, text: "Keluar", to:"/login"},
+    {id:3, icon:<ExitIcon />, text: "Keluar", to:"/logout"},
 ]
 
 export const genreData = {

@@ -12,7 +12,7 @@ function SmoothRectangleButton({ label, positionClass = '', onClick = null, aria
         px-1 sm:px-2
         rounded-xs cursor-pointer bg-[#22282A]/20
         transition-all duration-200
-        hover:shadow-md
+        hover:shadow-md focus:outline-none
         ${positionClass}
       `}
     >

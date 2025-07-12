@@ -8,7 +8,7 @@ import { getMyListGalleries } from '../../services/api/myList-service';
 function MyList() {
   const [userId] = useState('chill_user')
   const [ galleries, setGalleries ] = useState([]);
-  
+  const { toggleId: idToggleHandler, checkId } = useLocalStorage("my-lists", new Set());
   const { storedValue } = useLocalStorage('my-lists', new Set());
 
   useEffect(() => {
@@ -22,6 +22,7 @@ function MyList() {
     };
 
     fetchGalleries();
+    console.log(storedValue)
   }, [userId, storedValue ]);
   
   return (

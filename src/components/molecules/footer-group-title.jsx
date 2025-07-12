@@ -8,7 +8,7 @@ const FooterGroupTitle = ({ title, isMobile, isOpen, onClick=()=>{} }) => {
       <button
         type="button"
         onClick={onClick}
-        className={clsx("flex justify-between items-center text-lg font-semibold", cursorPointer)}
+        className={clsx("flex justify-between items-center text-lg font-semibold focus:outline-none", cursorPointer)}
       >
         { title } { isMobile && <ToggleButton isOpen={isOpen} /> }
       </button>

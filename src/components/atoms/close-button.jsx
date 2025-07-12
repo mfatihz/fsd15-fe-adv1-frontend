@@ -8,7 +8,7 @@ function CloseButton({ className = 'absolute top-4 right-4', onClick = null }) {
     p-1 md:p-1.5
     rounded-full cursor-pointer bg-black
     border border-white/60 box-border
-    transition-all duration-200
+    transition-all duration-200 focus:outline-none
     hover:scale-105 hover:shadow-md
   `
 

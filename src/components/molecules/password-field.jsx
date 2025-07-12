@@ -20,7 +20,7 @@ const PasswordField = ({name="password", placeholder="Masukkan kata sandi"}) => 
         <button
           type="button"
           onClick={() => setShowPassword((prev) => !prev)}
-          className="absolute right-3 top-1/2 -translate-y-1/2 opacity-70 hover:opacity-100 transition cursor-pointer"
+          className="absolute right-3 top-1/2 -translate-y-1/2 opacity-70 hover:opacity-100 transition cursor-pointer focus:outline-none"
         >
           <EyeIcon />
         </button>

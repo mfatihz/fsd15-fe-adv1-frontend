@@ -7,6 +7,7 @@ import Register from "./components/pages/register";
 import Movies from "./components/pages/movies";
 import Series from "./components/pages/series";
 import { AuthProvider, ProtectedRoute } from "./hooks/auth";
+import Logout from "./components/pages/logout";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/register" element={<Register />} />
           <Route path="/lists" element={<ProtectedRoute><MyList /></ProtectedRoute>} />
           {/* Header Links */}

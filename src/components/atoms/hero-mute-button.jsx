@@ -9,7 +9,7 @@ function HeroMuteButton({ positionClass = '', onClick = null }) {
     rounded-full cursor-pointer bg-[#333]/20
     border border-white/60 box-border
     transition-all duration-200
-    hover:scale-105 hover:shadow-md
+    hover:scale-105 hover:shadow-md focus:outline-none
   `
   return (
     <button

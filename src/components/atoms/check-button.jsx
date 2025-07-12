@@ -37,7 +37,7 @@ function CheckButton({
     h-8 sm:h-11 w-8 sm:w-11
     px-1 sm:px-2
     rounded-full cursor-pointer
-    border box-border
+    border box-border focus:outline-none
     hover:scale-105 hover:shadow-md
     hover:border hover:border-yellow-500
     transition-all duration-200

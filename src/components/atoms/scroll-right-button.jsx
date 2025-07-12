@@ -11,7 +11,7 @@ function ScrollRightButton({className, onClick=null}) {
         transition-all
         duration-200
         hover:bg-black/90
-        hover:scale-110
+        hover:scale-110 focus:outline-none
     `
 
     return (

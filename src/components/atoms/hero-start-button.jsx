@@ -9,7 +9,7 @@ function HeroStartButton({ onClick = null }) {
         px-2 sm:px-3 md:px-4
         rounded-full cursor-pointer bg-[#192DB7] border-0
         transition-all duration-200
-        hover:scale-105 hover:shadow-md
+        hover:scale-105 hover:shadow-md focus:outline-none
       `}
       onClick={onClick}
     >

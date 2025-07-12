@@ -9,7 +9,7 @@ function ChevronDownButton({ className, movieData }) {
     px-1 sm:px-2
     rounded-full cursor-pointer
     border border-white/60 box-border
-    transition-all duration-200
+    transition-all duration-200 focus:outline-none
     hover:bg-blue-300/50
     hover:scale-105 hover:shadow-md
   `

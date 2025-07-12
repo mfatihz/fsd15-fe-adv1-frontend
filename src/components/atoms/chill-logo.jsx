@@ -8,7 +8,7 @@ const ChillLogo = ({className=''}) => {
     h-[16px] sm:h-[26px] md:h-[36px] w-auto
     transition-transform duration-200 ease-in-out
     hover:scale-105
-    object-contain
+    object-contain focus:outline-none
   `
   
   return (

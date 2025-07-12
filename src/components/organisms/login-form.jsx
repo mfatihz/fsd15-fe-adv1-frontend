@@ -10,7 +10,7 @@ const LoginForm = () => {
     const [error, setError] = useState("");
     const { onLogin } = useAuth();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         const username = e.target.username.value;
         const password = e.target.password.value;
@@ -24,7 +24,7 @@ const LoginForm = () => {
         // Simulasi login berhasil
         if (username === "admin" && password === "admin") {
             // navigate("/"); // Navigasi ke Home jika berhasil
-            await onLogin();
+            onLogin();
         } else {
             setError("Username atau password salah\n\nHint:\nUsername = admin\nKata Sandi = admin");
         }
@@ -36,7 +36,6 @@ const LoginForm = () => {
                 <form 
                     id="login-form" 
                     onSubmit={handleSubmit}
-                    //onSubmit={onLogin}
                     className="flex flex-col gap-5 w-full"
                 >
                     {error && alert(error)}

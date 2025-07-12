@@ -11,7 +11,7 @@ function HeroNextButton({ onClick = null}) {
         px-2 sm:px-3 md:px-4
         rounded-full bg-[#333] border-0 cursor-pointer
         transition-all duration-200
-        hover:scale-105 hover:shadow-md
+        hover:scale-105 hover:shadow-md focus:outline-none
       `}
       onClick={onClick}
     >
