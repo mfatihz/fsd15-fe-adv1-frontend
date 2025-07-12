@@ -11,7 +11,7 @@ import {
     menuData,
     genreData,
     helpData,
-} from "../../utils/app/home-ui-elements";
+} from "../../utils/ui/home-ui-elements";
 import useLocalStorage from "../../hooks/use-local-storage";
 
 function MainPageTemplate({ hero, galleries }) {

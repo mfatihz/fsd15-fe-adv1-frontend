@@ -32,7 +32,7 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     ```
 
     ```
-    export const toggleMyList = async (userId, movieId) => {
+    export const toggleMyListId = async (userId, movieId) => {
         try {
             const response = await axios.put(`${API_URL}/mylist/${userId}/toggle`, { movieId });
             return response?.data?.ids;

@@ -1,21 +1,28 @@
 import { useEffect, useState } from 'react';
-import { myList } from "../../utils/data/my-list-page-data"
+// import { myList } from "../../utils/data/my-list-page-data"
 import MainPageTemplate from "../templates/main-page-template"
 
 import useLocalStorage from "../../hooks/use-local-storage";
+import { getMyListGalleries } from '../../services/api/myList-service';
 
 function MyList() {
+  const [userId] = useState('chill_user')
   const [ galleries, setGalleries ] = useState([]);
   
-  const { ids } = useLocalStorage('my-lists', new Set());
+  const { storedValue } = useLocalStorage('my-lists', new Set());
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      setGalleries(myList(ids));
+    const fetchGalleries = async () => {
+      try {
+        const galleriesData = await getMyListGalleries(userId);
+        setGalleries(galleriesData);
+      } catch (error) {
+        console.error('Failed to fetch galleries:', error);
+      }
     };
 
-    fetchMovies();
-  }, [ids]);
+    fetchGalleries();
+  }, [userId]);
   
   return (
     <MainPageTemplate

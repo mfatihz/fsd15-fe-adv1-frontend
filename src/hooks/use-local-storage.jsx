@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { checkMovieId, getMyList, toggleMyList } from '../services/api/myList-service';
+import { checkMovieId, getMyListIds, toggleMyListId } from '../services/api/myList-service';
 
 export default function useLocalStorage(key, initialValue = new Set()) {
   const [userId] = useState('chill_user'); // TODO: ganti dengan actual ID
@@ -9,7 +9,7 @@ export default function useLocalStorage(key, initialValue = new Set()) {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await getMyList(userId);
+        const response = await getMyListIds(userId);
         const newSet = new Set(response);
         setStoredValue(newSet);
         localStorage.setItem(key, JSON.stringify([...newSet]));
@@ -33,7 +33,7 @@ export default function useLocalStorage(key, initialValue = new Set()) {
 
   const toggleId = async (movieId) => {
     try {
-      const response = await toggleMyList(userId, movieId);
+      const response = await toggleMyListId(userId, movieId);
       const newSet = new Set(response);
       setStoredValue(newSet);
       localStorage.setItem(key, JSON.stringify([...newSet]));
