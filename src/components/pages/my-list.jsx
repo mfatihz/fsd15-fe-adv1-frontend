@@ -22,7 +22,7 @@ function MyList() {
     };
 
     fetchGalleries();
-  }, [userId]);
+  }, [userId, storedValue ]);
   
   return (
     <MainPageTemplate

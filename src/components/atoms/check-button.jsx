@@ -1,25 +1,36 @@
 import clsx from "clsx";
 import icon from "../../assets/images/icons/check-icon.svg";
-import { useState, useEffect } from 'react'
-import { toast } from 'sonner'
+import { useState, useEffect } from "react";
+import { toast } from "sonner";
 
-function CheckButton({ checkId = () => Promise.resolve(false), onClick, movieId, movieTitle }) {
+function CheckButton({
+  checkId = () => Promise.resolve(false),
+  idToggleHandler,
+  movieId,
+  movieTitle,
+}) {
   const [isChecked, setIsChecked] = useState(false);
-  
+
   // Handle async isChecked function
   useEffect(() => {
     async function fetchCheckedStatus() {
       const checked = await checkId(movieId);
       setIsChecked(checked);
     }
+
     fetchCheckedStatus();
+
   }, [movieId, checkId]);
 
   const handleClick = async (movieId) => {
-    await onClick(movieId);
+    await idToggleHandler(movieId);
     const newCheckedStatus = await checkId(movieId);
     setIsChecked(newCheckedStatus);
-    toast(`${movieTitle} berhasil ${newCheckedStatus ? 'dihapus dari' : 'ditambahkan ke'} Daftar Saya`);
+    toast(
+      `${movieTitle} berhasil ${
+        newCheckedStatus ? "dihapus dari" : "ditambahkan ke"
+      } Daftar Saya`
+    );
   };
 
   const baseStyle = `flex items-center justify-center 

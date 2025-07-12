@@ -64,7 +64,7 @@ const WallPosters = ({
                 galleryType={galleryType}
                 //isMobile={isMobile}
                 xBoundary={xBoundary}
-                onClick={idToggleHandler}
+                idToggleHandler={idToggleHandler}
                 checkId={checkId}
               />
             </li>

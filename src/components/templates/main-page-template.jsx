@@ -2,9 +2,9 @@ import Header from "../organisms/home-header";
 import Hero from "../organisms/hero";
 import Footer from "../organisms/home-footer";
 import PosterGalleries from "../organisms/poster-galleries";
+import PopupDetailCard from "../organisms/popup-detail-card";
 import { useEffect, useRef } from "react";
 import { usePopupDetailStore } from "../../stores/use-popup-detail";
-import PopupDetailCard from "../organisms/popup-detail-card";
 import { Toaster } from "sonner";
 import {
     navData,

@@ -7,7 +7,7 @@ import PosterChip from '../atoms/poster-chip'
 import PosterText from '../atoms/poster-text'
 import clsx from "clsx";
 
-function PosterHoverCard({ movie, galleryType, onClick, checkId }) {
+function PosterHoverCard({ movie, galleryType, idToggleHandler, checkId }) {
   const baseStyle = `rounded-lg sm:rounded-xl md:rounded-2xl
     flex flex-col bg-[#0f0f1a] 
     overflow-hidden
@@ -41,7 +41,7 @@ function PosterHoverCard({ movie, galleryType, onClick, checkId }) {
           <PlayButton />
           <CheckButton
             checkId={checkId}
-            onClick={onClick}
+            idToggleHandler={idToggleHandler}
             movieId={movie.id}
             movieTitle={movie.title}
           />

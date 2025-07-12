@@ -7,7 +7,7 @@ function PosterCard({
   galleryType,
   //isMobile=false,
   xBoundary,
-  onClick,
+  idToggleHandler,
   checkId,
 }) {
   //const { isOpen } = usePopupDetailStore
@@ -63,7 +63,7 @@ function PosterCard({
             <PosterHoverCard
               movie={movie}
               galleryType={galleryType}
-              onClick={onClick}
+              idToggleHandler={idToggleHandler}
               checkId={checkId}
             />
           </div>

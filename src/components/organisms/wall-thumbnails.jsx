@@ -3,7 +3,7 @@ import NoContent from '../atoms/no-content';
 import clsx from 'clsx'
 import ThumbnailChip from '../molecules/thumbnail-chip';
 
-const WallPosters = ({
+const WallThumbnails = ({
   movies,
   alt="Daftar episode belum tersedia"
 }) => {
@@ -39,4 +39,4 @@ const WallPosters = ({
   );
 };
 
-export default WallPosters;
+export default WallThumbnails;
