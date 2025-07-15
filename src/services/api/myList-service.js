@@ -34,7 +34,7 @@ export const toggleMyListId = async (userId, movieId) => {
 
 export const checkMovieId = async (userId, movieId) => {
     try {
-        const response = await axios.get(`${API_URL}/mylist/${userId}/movies/${movieId}/exists`);
+        const response = await axios.get(`${API_URL}/mylist/${userId}/watchlist/movies/${movieId}`);
         return response.data.has;
     } catch (e) {
         console.error('Error getting MyList:', e);
