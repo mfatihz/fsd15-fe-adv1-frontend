@@ -7,7 +7,7 @@ function Series() {
   const [hero, setHero] = useState([]);
   const [galleries, setGalleries] = useState()
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
     const fetchHero = async () => {

@@ -27,7 +27,7 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     ```
     const fetchGalleries = async () => {
       try {
-        const response = await axios.get(`${API_URL}/galleries/movies`);
+        const response = await axios.get(`${VITE_API_URL}/galleries/movies`);
         setGalleries(response.data);
       } catch (e) {
         console.error('Error fetching galleries: ', e)
@@ -38,7 +38,7 @@ Mengintegrasikan data static dengan penggunaan API dan mendalami framework React
     ```
     export const toggleMyListId = async (userId, movieId) => {
         try {
-            const response = await axios.put(`${API_URL}/mylist/${userId}/toggle`, { movieId });
+            const response = await axios.put(`${VITE_API_URL}/mylist/${userId}/toggle`, { movieId });
             return response?.data?.ids;
         } catch (e) {
             console.error('Error add to MyList:', e);
