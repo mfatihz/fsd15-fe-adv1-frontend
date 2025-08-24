@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-# .env # TODO: aktifkan jika development sudah selesai
+# .env # TODO: aktifkan jika development phase selesai
 
 # Editor directories and files
 .vscode/*
