@@ -17,7 +17,7 @@ function PosterGalleries({
     
     return (
         <main className={clsx(baseStyle, paddingClass)}>
-            {galleries?.length > 0 ? (
+            {galleries && galleries?.length > 0 ? (
                 galleries?.map((gallery, index) => (
                     gallery?.movies?.length > 0
                         && <div key={index} className="w-full overflow-visible">
